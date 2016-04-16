@@ -1,0 +1,8 @@
+{
+    "variants": {
+        "facing=north": { "model": "roadmod:StopSign" },
+        "facing=south": { "model": "roadmod:StopSign", "y": 180 },
+        "facing=west":  { "model": "roadmod:StopSign", "y": 270 },
+        "facing=east":  { "model": "roadmod:StopSign", "y": 90 }
+    }
+}

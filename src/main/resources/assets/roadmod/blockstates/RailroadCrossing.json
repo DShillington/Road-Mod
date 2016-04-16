@@ -1,0 +1,8 @@
+{
+    "variants": {
+        "facing=north": { "model": "roadmod:RailroadCrossing" },
+        "facing=south": { "model": "roadmod:RailroadCrossing", "y": 180 },
+        "facing=west":  { "model": "roadmod:RailroadCrossing", "y": 270 },
+        "facing=east":  { "model": "roadmod:RailroadCrossing", "y": 90 }
+    }
+}

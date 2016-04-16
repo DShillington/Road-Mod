@@ -1,0 +1,8 @@
+{
+    "variants": {
+        "facing=north": { "model": "roadmod:Guardrail" },
+        "facing=south": { "model": "roadmod:Guardrail", "y": 180 },
+        "facing=west":  { "model": "roadmod:Guardrail", "y": 270 },
+        "facing=east":  { "model": "roadmod:Guardrail", "y": 90 }
+    }
+}

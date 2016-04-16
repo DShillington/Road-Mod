@@ -1,0 +1,8 @@
+{
+    "variants": {
+        "facing=north": { "model": "roadmod:RoadBlockSign" },
+        "facing=south": { "model": "roadmod:RoadBlockSign", "y": 180 },
+        "facing=west":  { "model": "roadmod:RoadBlockSign", "y": 270 },
+        "facing=east":  { "model": "roadmod:RoadBlockSign", "y": 90 }
+    }
+}

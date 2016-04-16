@@ -1,0 +1,8 @@
+{
+    "variants": {
+        "facing=north": { "model": "roadmod:Pothole" },
+        "facing=south": { "model": "roadmod:Pothole", "y": 180 },
+        "facing=west":  { "model": "roadmod:Pothole", "y": 270 },
+        "facing=east":  { "model": "roadmod:Pothole", "y": 90 }
+    }
+}

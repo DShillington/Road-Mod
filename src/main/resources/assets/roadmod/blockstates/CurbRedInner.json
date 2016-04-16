@@ -1,0 +1,8 @@
+{
+    "variants": {
+        "facing=north": { "model": "roadmod:CurbRedInner" },
+        "facing=south": { "model": "roadmod:CurbRedInner", "y": 180 },
+        "facing=west":  { "model": "roadmod:CurbRedInner", "y": 270 },
+        "facing=east":  { "model": "roadmod:CurbRedInner", "y": 90 }
+    }
+}

@@ -1,0 +1,8 @@
+{
+    "variants": {
+        "facing=north": { "model": "roadmod:PylonLarge" },
+        "facing=south": { "model": "roadmod:PylonLarge", "y": 180 },
+        "facing=west":  { "model": "roadmod:PylonLarge", "y": 270 },
+        "facing=east":  { "model": "roadmod:PylonLarge", "y": 90 }
+    }
+}

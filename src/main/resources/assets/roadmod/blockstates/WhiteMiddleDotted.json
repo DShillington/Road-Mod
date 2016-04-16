@@ -1,0 +1,9 @@
+{
+    "variants": {
+        "normal": { "model": "roadmod:WhiteMiddleDotted" },
+        "facing=north": { "model": "roadmod:WhiteMiddleDotted" },
+        "facing=south": { "model": "roadmod:WhiteMiddleDotted", "y": 180 },
+        "facing=west":  { "model": "roadmod:WhiteMiddleDotted", "y": 270 },
+        "facing=east":  { "model": "roadmod:WhiteMiddleDotted", "y": 90 }
+    }
+}

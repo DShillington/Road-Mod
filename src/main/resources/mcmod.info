@@ -1,0 +1,15 @@
+[
+{
+  "modid": "roadmod",
+  "name": "Road Mod",
+  "description": "Roads in Minecraft",
+  "version": "2.1 for 1.8.9",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["Papertazer"],
+  "credits": "",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]

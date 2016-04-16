@@ -1,0 +1,8 @@
+{
+    "variants": {
+        "facing=north": { "model": "roadmod:MergeLeft" },
+        "facing=south": { "model": "roadmod:MergeLeft", "y": 180 },
+        "facing=west":  { "model": "roadmod:MergeLeft", "y": 270 },
+        "facing=east":  { "model": "roadmod:MergeLeft", "y": 90 }
+    }
+}

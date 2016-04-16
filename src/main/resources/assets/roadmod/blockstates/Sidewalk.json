@@ -1,0 +1,9 @@
+{
+    "variants": {
+        "normal": { "model": "roadmod:Sidewalk" },
+        "facing=north": { "model": "roadmod:Sidewalk" },
+        "facing=south": { "model": "roadmod:Sidewalk", "y": 180 },
+        "facing=west":  { "model": "roadmod:Sidewalk", "y": 270 },
+        "facing=east":  { "model": "roadmod:Sidewalk", "y": 90 }
+    }
+}

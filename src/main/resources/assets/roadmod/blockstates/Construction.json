@@ -1,0 +1,8 @@
+{
+    "variants": {
+        "facing=north": { "model": "roadmod:Construction" },
+        "facing=south": { "model": "roadmod:Construction", "y": 180 },
+        "facing=west":  { "model": "roadmod:Construction", "y": 270 },
+        "facing=east":  { "model": "roadmod:Construction", "y": 90 }
+    }
+}

@@ -1,0 +1,8 @@
+{
+    "variants": {
+        "facing=north": { "model": "roadmod:StopAhead" },
+        "facing=south": { "model": "roadmod:StopAhead", "y": 180 },
+        "facing=west":  { "model": "roadmod:StopAhead", "y": 270 },
+        "facing=east":  { "model": "roadmod:StopAhead", "y": 90 }
+    }
+}

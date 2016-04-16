@@ -1,0 +1,8 @@
+{
+    "variants": {
+        "facing=north": { "model": "roadmod:DetourLeft" },
+        "facing=south": { "model": "roadmod:DetourLeft", "y": 180 },
+        "facing=west":  { "model": "roadmod:DetourLeft", "y": 270 },
+        "facing=east":  { "model": "roadmod:DetourLeft", "y": 90 }
+    }
+}

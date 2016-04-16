@@ -1,0 +1,8 @@
+{
+    "variants": {
+        "facing=north": { "model": "roadmod:WhiteCross" },
+        "facing=south": { "model": "roadmod:WhiteCross", "y": 180 },
+        "facing=west":  { "model": "roadmod:WhiteCross", "y": 270 },
+        "facing=east":  { "model": "roadmod:WhiteCross", "y": 90 }
+    }
+}

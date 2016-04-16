@@ -1,0 +1,8 @@
+{
+    "variants": {
+        "facing=north": { "model": "roadmod:FireHydrant" },
+        "facing=south": { "model": "roadmod:FireHydrant", "y": 180 },
+        "facing=west":  { "model": "roadmod:FireHydrant", "y": 270 },
+        "facing=east":  { "model": "roadmod:FireHydrant", "y": 90 }
+    }
+}

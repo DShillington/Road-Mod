@@ -1,0 +1,9 @@
+{
+    "variants": {
+        "normal": { "model": "roadmod:YellowSideCornerOut" },
+        "facing=north": { "model": "roadmod:YellowSideCornerOut" },
+        "facing=south": { "model": "roadmod:YellowSideCornerOut", "y": 180 },
+        "facing=west":  { "model": "roadmod:YellowSideCornerOut", "y": 270 },
+        "facing=east":  { "model": "roadmod:YellowSideCornerOut", "y": 90 }
+    }
+}

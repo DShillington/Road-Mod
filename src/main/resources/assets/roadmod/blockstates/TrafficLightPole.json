@@ -1,0 +1,9 @@
+{
+    "variants": {
+        "normal": { "model": "roadmod:TrafficLightPole" },
+        "facing=north": { "model": "roadmod:TrafficLightPole" },
+        "facing=south": { "model": "roadmod:TrafficLightPole", "y": 180 },
+        "facing=west":  { "model": "roadmod:TrafficLightPole", "y": 270 },
+        "facing=east":  { "model": "roadmod:TrafficLightPole", "y": 90 }
+    }
+}
