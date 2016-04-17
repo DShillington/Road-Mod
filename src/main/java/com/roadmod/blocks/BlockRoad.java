@@ -36,13 +36,9 @@ public class BlockRoad extends Block
 	 public BlockRoad(Material materialIn) {
 		super(Material.iron);
 		this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.SOUTH));
-	}
+		this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.812F, 1.0F);
+	 }
 	 
-	 public boolean canPlaceBlockAt(World worldIn, BlockPos pos)
-	    {
-	        return worldIn.getBlockState(pos).getBlock().isReplaceable(worldIn, pos) && World.doesBlockHaveSolidTopSurface(worldIn, pos.down());
-	    }
-
 	public static final PropertyDirection FACING = PropertyDirection.create("facing", EnumFacing.Plane.HORIZONTAL);
 
 	@Override
@@ -52,7 +48,7 @@ public class BlockRoad extends Block
 	
 	@Override
 	public boolean isFullCube() {
-		return false;
+		return true;
 	}
 	
 	@Override
