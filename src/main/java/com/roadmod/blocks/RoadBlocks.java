@@ -30,7 +30,7 @@ public class RoadBlocks
 	public static Block Road_Straight, Road_Straight_Right, Road_Straight_Left, Road_Right,
 	Road_Left, Road_Handicap;
 	//Other Road Blocks
-	public static Block Road_Manhole, Road_Guard, Road_Guard_Corner, Road_Pothole, Road_Speedbump, Road_Curb,
+	public static Block manhole, Road_Guard, Road_Guard_Corner, Road_Pothole, Road_Speedbump, Road_Curb,
 	Road_Curb_Green, Road_Curb_Blue, Road_Curb_White, Road_Curb_Red, Road_Curb_Yellow, Road_Curb_Outer_Corner,
 	Road_Curb_Green_Outer_Corner, Road_Curb_Blue_Outer_Corner, Road_Curb_White_Outer_Corner,
 	Road_Curb_Red_Outer_Corner, Road_Curb_Yellow_Outer_Corner, Road_Curb_Inner_Corner, 
@@ -51,8 +51,6 @@ public class RoadBlocks
 	Sign_Merge_Left, Sign_Merge_Right, Sign_StopSign_Ahead, Sign_Road_Block, RailRoad_Crossing_Sign;
 	//Misc
 	public static Block Fire_Hydrant, Parking_Meter;
-	//RailRoad  (These are not actually in the mod yet. Just thinking about it.)
-	public static Block RailRoad, RailRoad_Powered, RailRoad_Detector;
 	
 	public static void init()
 	{
@@ -83,7 +81,7 @@ public class RoadBlocks
 		Road_Straight_Left = new BlockRoad(Material.iron).setUnlocalizedName("StraightLeft");
 		Road_Right = new BlockRoad(Material.iron).setUnlocalizedName("Right");
 		Road_Left = new BlockRoad(Material.iron).setUnlocalizedName("Left");
-		Road_Manhole = new BlockRoad(Material.iron).setUnlocalizedName("Manhole");
+		manhole = new BlockManholeCover(Material.iron).setUnlocalizedName("manhole");
 		Road_Guard = new BlockRoad(Material.iron).setUnlocalizedName("Guardrail");
 		Road_Guard_Corner = new BlockRoad(Material.iron).setUnlocalizedName("GuardrailCorner");
 		Road_Pothole = new BlockRoad(Material.iron).setUnlocalizedName("Pothole");
@@ -177,7 +175,7 @@ public class RoadBlocks
 		GameRegistry.registerBlock(Road_Right, Road_Right.getUnlocalizedName().substring(5)).setHardness(1.5F).setResistance(10.0F).setCreativeTab(RoadMod.AsphaultTab);
 		GameRegistry.registerBlock(Road_Left, Road_Left.getUnlocalizedName().substring(5)).setHardness(1.5F).setResistance(10.0F).setCreativeTab(RoadMod.AsphaultTab);
 		GameRegistry.registerBlock(Road_Handicap, Road_Handicap.getUnlocalizedName().substring(5)).setHardness(1.5F).setResistance(10.0F).setCreativeTab(RoadMod.AsphaultTab);
-		GameRegistry.registerBlock(Road_Manhole, Road_Manhole.getUnlocalizedName().substring(5)).setHardness(1.5F).setResistance(10.0F).setCreativeTab(RoadMod.AsphaultTab);
+		GameRegistry.registerBlock(manhole, manhole.getUnlocalizedName().substring(5)).setHardness(1.5F).setResistance(10.0F).setCreativeTab(RoadMod.AsphaultTab);
 		GameRegistry.registerBlock(Road_Guard, Road_Guard.getUnlocalizedName().substring(5)).setHardness(1.5F).setResistance(10.0F).setCreativeTab(RoadMod.MiscTab);
 		GameRegistry.registerBlock(Road_Guard_Corner, Road_Guard_Corner.getUnlocalizedName().substring(5)).setHardness(1.5F).setResistance(10.0F).setCreativeTab(RoadMod.MiscTab);
 		GameRegistry.registerBlock(Road_Pothole, Road_Pothole.getUnlocalizedName().substring(5)).setHardness(1.5F).setResistance(10.0F).setCreativeTab(RoadMod.AsphaultTab);
@@ -272,7 +270,7 @@ public class RoadBlocks
 		RegisterRender(Road_Left);
 		RegisterRender(Road_Right);
 		RegisterRender(Road_Handicap);
-		RegisterRender(Road_Manhole);
+		RegisterRender(manhole);
 		RegisterRender(Road_Guard);
 		RegisterRender(Road_Guard_Corner);
 		RegisterRender(Road_Pothole);

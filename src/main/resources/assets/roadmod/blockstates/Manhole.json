@@ -1,8 +1,20 @@
 {
     "variants": {
-        "facing=north": { "model": "roadmod:Manhole" },
-        "facing=south": { "model": "roadmod:Manhole", "y": 180 },
-        "facing=west":  { "model": "roadmod:Manhole", "y": 270 },
-        "facing=east":  { "model": "roadmod:Manhole", "y": 90 }
+        "facing=north,half=bottom,open=false": { "model": "roadmod:manhole_bottom" },
+        "facing=south,half=bottom,open=false": { "model": "roadmod:manhole_bottom" },
+        "facing=east,half=bottom,open=false": { "model": "roadmod:manhole_bottom" },
+        "facing=west,half=bottom,open=false": { "model": "roadmod:manhole_bottom" },
+        "facing=north,half=top,open=false": { "model": "roadmod:manhole_top" },
+        "facing=south,half=top,open=false": { "model": "roadmod:manhole_top" },
+        "facing=east,half=top,open=false": { "model": "roadmod:manhole_top" },
+        "facing=west,half=top,open=false": { "model": "roadmod:manhole_top" },
+        "facing=north,half=bottom,open=true": { "model": "roadmod:manhole_open" },
+        "facing=south,half=bottom,open=true": { "model": "roadmod:manhole_open", "y": 180 },
+        "facing=east,half=bottom,open=true": { "model": "roadmod:manhole_open", "y": 90 },
+        "facing=west,half=bottom,open=true": { "model": "roadmod:manhole_open", "y": 270 },
+        "facing=north,half=top,open=true": { "model": "roadmod:manhole_open" },
+        "facing=south,half=top,open=true": { "model": "roadmod:manhole_open", "y": 180 },
+        "facing=east,half=top,open=true": { "model": "roadmod:manhole_open", "y": 90 },
+        "facing=west,half=top,open=true": { "model": "roadmod:manhole_open", "y": 270 }
     }
 }
