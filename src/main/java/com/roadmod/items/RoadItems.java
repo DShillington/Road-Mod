@@ -31,6 +31,7 @@ public class RoadItems {
 		inventorylogo = (new ItemBase().setUnlocalizedName("inventorylogo"));
 		
 	}
+	//test
 	
 	public static void register()
 	{	
