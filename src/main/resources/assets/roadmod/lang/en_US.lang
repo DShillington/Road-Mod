@@ -83,4 +83,9 @@ tile.CurbYellowOuter.name= Outside Corner Yellow Curb
 tile.CurbGreenOuter.name= Outside Corner Green Curb
 tile.Pothole.name= Pothole
 tile.FireHydrant.name= Fire Hydrant
+tile.ParkingMeter.name= Parking Meter
+tile.RailRoad.name= Rail Road
+tile.RailRoadPowered.name= Powered Rail Road
+tile.RailRoadDetector.name= Detector Rail Road
+tile.RailRoadCrossingSign.name= Rail Road Crossing Sign
 

@@ -23,7 +23,7 @@ public class RoadBlocks
 	Road_White_Side_Corner, Road_White_Side_Corner_Out, Road_White_Cross, Road_White_T, Road_Yellow_Middle_Solid,
 	Road_Yellow_Middle_Dotted, Road_Yellow_Side_Solid, Road_Yellow_Side_Corner, Road_Yellow_Side_Corner_Out,
 	Road_Yellow_Cross, Road_Yellow_T, Road_Straight, Road_Straight_Right, Road_Straight_Left, Road_Right,
-	Road_Left, Road_Crossing;
+	Road_Left, Road_Crossing, Road_Handicap;
 	//Other Road Blocks
 	public static Block Road_Manhole, Road_Guard, Road_Guard_Corner, Road_Pothole, Road_Speedbump, Road_Curb,
 	Road_Curb_Green, Road_Curb_Blue, Road_Curb_White, Road_Curb_Red, Road_Curb_Yellow, Road_Curb_Outer_Corner,
@@ -43,11 +43,11 @@ public class RoadBlocks
 	Sign_Do_Not_Enter, Sign_No_Uturn, Sign_Yes_Uturn, Sign_One_Way_Left, Sign_One_Way_Right, Sign_Yeild,
 	Sign_Crosswalk, Sign_Intersection_Left, Sign_Intersection_Right, Sign_Crossing_Railroad, Sign_Crossing_Cow,
 	Sign_Stop_Ahead, Sign_Construction, Sign_Construction_End, Sign_Detour_Left, Sign_Detour_Right, 
-	Sign_Merge_Left, Sign_Merge_Right, Sign_StopSign_Ahead, Sign_Road_Block;
+	Sign_Merge_Left, Sign_Merge_Right, Sign_StopSign_Ahead, Sign_Road_Block, RailRoad_Crossing_Sign;
 	//Misc
-	public static Block Fire_Hydrant;
-	
-	
+	public static Block Fire_Hydrant, Parking_Meter;
+	//RailRoad  (These are not actually in the mod yet. Just thinking about it.)
+	public static Block RailRoad, RailRoad_Powered, RailRoad_Detector;
 	
 	public static void init()
 	{
@@ -96,6 +96,7 @@ public class RoadBlocks
 		Road_Curb_Red_Inner_Corner = new BlockRoad(Material.iron).setUnlocalizedName("CurbRedInner");
 		Road_Curb_Green_Inner_Corner = new BlockRoad(Material.iron).setUnlocalizedName("CurbGreenInner");
 		Road_Curb_Yellow_Inner_Corner = new BlockRoad(Material.iron).setUnlocalizedName("CurbYellowInner");
+		Road_Handicap = new BlockRoad(Material.iron).setUnlocalizedName("RoadHandicap");
 		Sidewalk = new BlockSidewalk(Material.iron).setUnlocalizedName("Sidewalk");
 		Sidewalk_Drain = new BlockSidewalk(Material.iron).setUnlocalizedName("SidewalkDrain");
 		Traffic_Light = new BlockTrafficLight(Material.iron).setUnlocalizedName("TrafficLight");
@@ -133,11 +134,12 @@ public class RoadBlocks
 		Sign_StopSign_Ahead = new BlockRoadSign(Material.iron).setUnlocalizedName("StopSignAhead");
 		Sign_Road_Block = new BlockRoadSign(Material.iron).setUnlocalizedName("RoadBlockSign");
 		Fire_Hydrant = new BlockFireHydrant(Material.iron).setUnlocalizedName("FireHydrant");
+		Parking_Meter = new BlockRoadSign(Material.iron).setUnlocalizedName("ParkingMeter");
+		RailRoad_Crossing_Sign = new BlockRoadSign(Material.iron).setUnlocalizedName("RailRoadCrossingSign");
 		
 	}
 	public static void register()
 	{
-
 		GameRegistry.registerBlock(Road, Road.getUnlocalizedName().substring(5)).setHardness(1.5F).setResistance(10.0F).setCreativeTab(RoadMod.RoadTab);
 		GameRegistry.registerBlock(Road_White_Middle_Solid, Road_White_Middle_Solid.getUnlocalizedName().substring(5)).setHardness(1.5F).setResistance(10.0F).setCreativeTab(RoadMod.RoadTab);
 		GameRegistry.registerBlock(Road_White_Middle_Dotted, Road_White_Middle_Dotted.getUnlocalizedName().substring(5)).setHardness(1.5F).setResistance(10.0F).setCreativeTab(RoadMod.RoadTab);
@@ -159,6 +161,7 @@ public class RoadBlocks
 		GameRegistry.registerBlock(Road_Right, Road_Right.getUnlocalizedName().substring(5)).setHardness(1.5F).setResistance(10.0F).setCreativeTab(RoadMod.RoadTab);
 		GameRegistry.registerBlock(Road_Left, Road_Left.getUnlocalizedName().substring(5)).setHardness(1.5F).setResistance(10.0F).setCreativeTab(RoadMod.RoadTab);
 		GameRegistry.registerBlock(Road_Crossing, Road_Crossing.getUnlocalizedName().substring(5)).setHardness(1.5F).setResistance(10.0F).setCreativeTab(RoadMod.RoadTab);
+		GameRegistry.registerBlock(Road_Handicap, Road_Handicap.getUnlocalizedName().substring(5)).setHardness(1.5F).setResistance(10.0F).setCreativeTab(RoadMod.RoadTab);
 		GameRegistry.registerBlock(Road_Manhole, Road_Manhole.getUnlocalizedName().substring(5)).setHardness(1.5F).setResistance(10.0F).setCreativeTab(RoadMod.RoadTab);
 		GameRegistry.registerBlock(Road_Guard, Road_Guard.getUnlocalizedName().substring(5)).setHardness(1.5F).setResistance(10.0F).setCreativeTab(RoadMod.RoadTab);
 		GameRegistry.registerBlock(Road_Guard_Corner, Road_Guard_Corner.getUnlocalizedName().substring(5)).setHardness(1.5F).setResistance(10.0F).setCreativeTab(RoadMod.RoadTab);
@@ -219,8 +222,9 @@ public class RoadBlocks
 		GameRegistry.registerBlock(Sign_StopSign_Ahead, Sign_StopSign_Ahead.getUnlocalizedName().substring(5)).setHardness(1.5F).setResistance(10.0F).setCreativeTab(RoadMod.RoadTab);
 		GameRegistry.registerBlock(Sign_Road_Block, Sign_Road_Block.getUnlocalizedName().substring(5)).setHardness(1.5F).setResistance(10.0F).setCreativeTab(RoadMod.RoadTab);
 		GameRegistry.registerBlock(Fire_Hydrant, Fire_Hydrant.getUnlocalizedName().substring(5)).setHardness(1.5F).setResistance(10.0F).setCreativeTab(RoadMod.RoadTab);
+		GameRegistry.registerBlock(Parking_Meter, Parking_Meter.getUnlocalizedName().substring(5)).setHardness(1.5F).setResistance(10.0F).setCreativeTab(RoadMod.RoadTab);
+		GameRegistry.registerBlock(RailRoad_Crossing_Sign, RailRoad_Crossing_Sign.getUnlocalizedName().substring(5)).setHardness(1.5F).setResistance(10.0F).setCreativeTab(RoadMod.RoadTab);
 			
-
 	}
 
 	
@@ -247,6 +251,7 @@ public class RoadBlocks
 		RegisterRender(Road_Left);
 		RegisterRender(Road_Right);
 		RegisterRender(Road_Crossing);
+		RegisterRender(Road_Handicap);
 		RegisterRender(Road_Manhole);
 		RegisterRender(Road_Guard);
 		RegisterRender(Road_Guard_Corner);
@@ -307,7 +312,8 @@ public class RoadBlocks
 		RegisterRender(Sign_StopSign_Ahead);
 		RegisterRender(Sign_Road_Block);
 		RegisterRender(Fire_Hydrant);
-		
+		RegisterRender(Parking_Meter);
+		RegisterRender(RailRoad_Crossing_Sign);
 	}
 	
 	public static void RegisterRender(Block block)

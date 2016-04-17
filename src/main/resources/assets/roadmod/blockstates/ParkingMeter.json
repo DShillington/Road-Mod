@@ -1,0 +1,8 @@
+{
+    "variants": {
+        "facing=north": { "model": "roadmod:ParkingMeter" },
+        "facing=south": { "model": "roadmod:ParkingMeter", "y": 180 },
+        "facing=west":  { "model": "roadmod:ParkingMeter", "y": 270 },
+        "facing=east":  { "model": "roadmod:ParkingMeter", "y": 90 }
+    }
+}
