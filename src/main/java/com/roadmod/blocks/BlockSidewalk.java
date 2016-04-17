@@ -38,11 +38,6 @@ public class BlockSidewalk extends Block
 		this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.SOUTH));
 	}
 	 
-	 public boolean canPlaceBlockAt(World worldIn, BlockPos pos)
-	    {
-	        return worldIn.getBlockState(pos).getBlock().isReplaceable(worldIn, pos) && World.doesBlockHaveSolidTopSurface(worldIn, pos.down());
-	    }
-	
 	public static final PropertyDirection FACING = PropertyDirection.create("facing", EnumFacing.Plane.HORIZONTAL);
 
 	@Override
@@ -52,7 +47,7 @@ public class BlockSidewalk extends Block
 	
 	@Override
 	public boolean isFullCube() {
-		return false;
+		return true;
 	}
 	
 	@Override
