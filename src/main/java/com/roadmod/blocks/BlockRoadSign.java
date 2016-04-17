@@ -57,7 +57,7 @@ public class BlockRoadSign extends Block
 	
 	@Override
 	public EnumWorldBlockLayer getBlockLayer() {
-		return EnumWorldBlockLayer.SOLID;
+		return EnumWorldBlockLayer.CUTOUT;
 	}
 	public Item getItemDropped(IBlockState state, Random rand, int fortune)
     {

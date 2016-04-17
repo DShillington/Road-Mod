@@ -16,86 +16,35 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 
 public class RoadBlocks 
 	{
+	//Road Base
 	public static Block Road;
-	public static Block Road_White_Middle_Solid;
-	public static Block Road_White_Middle_Dotted;
-	public static Block Road_White_Side_Solid;
-	public static Block Road_White_Side_Corner;
-	public static Block Road_White_Side_Corner_Out;
-	public static Block Road_White_Cross;
-	public static Block Road_White_T;
-	public static Block Road_Yellow_Middle_Solid;
-	public static Block Road_Yellow_Middle_Dotted;
-	public static Block Road_Yellow_Side_Solid;
-	public static Block Road_Yellow_Side_Corner;
-	public static Block Road_Yellow_Side_Corner_Out;
-	public static Block Road_Yellow_Cross;
-	public static Block Road_Yellow_T;
-	public static Block Road_Straight;
-	public static Block Road_Straight_Right;
-	public static Block Road_Straight_Left;
-	public static Block Road_Right;
-	public static Block Road_Left;
-	public static Block Road_Crossing;
-	public static Block Road_Manhole;
-	public static Block Road_Guard;
-	public static Block Road_Guard_Corner;
-	public static Block Road_Pothole;
-	public static Block Road_Speedbump;
-	public static Block Road_Curb;
-	public static Block Road_Curb_Green;
-	public static Block Road_Curb_Blue;
-	public static Block Road_Curb_White;
-	public static Block Road_Curb_Red;
-	public static Block Road_Curb_Yellow;
-	public static Block Road_Curb_Outer_Corner;
-	public static Block Road_Curb_Green_Outer_Corner;
-	public static Block Road_Curb_Blue_Outer_Corner;
-	public static Block Road_Curb_White_Outer_Corner;
-	public static Block Road_Curb_Red_Outer_Corner;
-	public static Block Road_Curb_Yellow_Outer_Corner;
-	public static Block Road_Curb_Inner_Corner;
-	public static Block Road_Curb_Green_Inner_Corner;
-	public static Block Road_Curb_Blue_Inner_Corner;
-	public static Block Road_Curb_White_Inner_Corner;
-	public static Block Road_Curb_Red_Inner_Corner;
-	public static Block Road_Curb_Yellow_Inner_Corner;
-	public static Block Sidewalk;
-	public static Block Sidewalk_Drain;
-	public static Block Traffic_Light;
-	public static Block Traffic_Light_Pole;
-	public static Block Traffic_Light_Pole_Side;
-	public static Block Traffic_Light_Pole_Corner;
-	public static Block Street_Light;
-	public static Block Pylon_Stick;
-	public static Block Pylon_Triangle;
-	public static Block Pylon_Large;
-	public static Block Sign_Crossing;
-	public static Block Sign_Stop;
-	public static Block Sign_Speed_KM_100;
-	public static Block Sign_Speed_KM_50;
-	public static Block Sign_Speed_70;
-	public static Block Sign_Speed_35;
-	public static Block Sign_Do_Not_Enter;
-	public static Block Sign_No_Uturn;
-	public static Block Sign_Yes_Uturn;
-	public static Block Sign_One_Way_Left;
-	public static Block Sign_One_Way_Right;
-	public static Block Sign_Yeild;
-	public static Block Sign_Crosswalk;
-	public static Block Sign_Intersection_Left;
-	public static Block Sign_Intersection_Right;
-	public static Block Sign_Crossing_Railroad;
-	public static Block Sign_Crossing_Cow;
-	public static Block Sign_Stop_Ahead;
-	public static Block Sign_Construction;
-	public static Block Sign_Construction_End;
-	public static Block Sign_Detour_Left;
-	public static Block Sign_Detour_Right;
-	public static Block Sign_Merge_Left;
-	public static Block Sign_Merge_Right;
-	public static Block Sign_StopSign_Ahead;
-	public static Block Sign_Road_Block;
+	//Road Lines
+	public static Block Road_White_Middle_Solid, Road_White_Middle_Dotted,Road_White_Side_Solid,
+	Road_White_Side_Corner, Road_White_Side_Corner_Out, Road_White_Cross, Road_White_T, Road_Yellow_Middle_Solid,
+	Road_Yellow_Middle_Dotted, Road_Yellow_Side_Solid, Road_Yellow_Side_Corner, Road_Yellow_Side_Corner_Out,
+	Road_Yellow_Cross, Road_Yellow_T, Road_Straight, Road_Straight_Right, Road_Straight_Left, Road_Right,
+	Road_Left, Road_Crossing;
+	//Other Road Blocks
+	public static Block Road_Manhole, Road_Guard, Road_Guard_Corner, Road_Pothole, Road_Speedbump, Road_Curb,
+	Road_Curb_Green, Road_Curb_Blue, Road_Curb_White, Road_Curb_Red, Road_Curb_Yellow, Road_Curb_Outer_Corner,
+	Road_Curb_Green_Outer_Corner, Road_Curb_Blue_Outer_Corner, Road_Curb_White_Outer_Corner,
+	Road_Curb_Red_Outer_Corner, Road_Curb_Yellow_Outer_Corner, Road_Curb_Inner_Corner, 
+	Road_Curb_Green_Inner_Corner, Road_Curb_Blue_Inner_Corner, Road_Curb_White_Inner_Corner, 
+	Road_Curb_Red_Inner_Corner, Road_Curb_Yellow_Inner_Corner;
+	//Pathways
+	public static Block Sidewalk, Sidewalk_Drain;
+	//Light Pole Stuff
+	public static Block Traffic_Light, Traffic_Light_Pole, Traffic_Light_Pole_Side, Traffic_Light_Pole_Corner,
+	Street_Light, Sign_Crossing;
+	//Pylons
+	public static Block Pylon_Stick, Pylon_Triangle, Pylon_Large;
+	//Signs
+	public static Block Sign_Stop, Sign_Speed_KM_100, Sign_Speed_KM_50, Sign_Speed_70, Sign_Speed_35,
+	Sign_Do_Not_Enter, Sign_No_Uturn, Sign_Yes_Uturn, Sign_One_Way_Left, Sign_One_Way_Right, Sign_Yeild,
+	Sign_Crosswalk, Sign_Intersection_Left, Sign_Intersection_Right, Sign_Crossing_Railroad, Sign_Crossing_Cow,
+	Sign_Stop_Ahead, Sign_Construction, Sign_Construction_End, Sign_Detour_Left, Sign_Detour_Right, 
+	Sign_Merge_Left, Sign_Merge_Right, Sign_StopSign_Ahead, Sign_Road_Block;
+	//Misc
 	public static Block Fire_Hydrant;
 	
 	
