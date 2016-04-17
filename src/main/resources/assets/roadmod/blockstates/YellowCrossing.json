@@ -1,0 +1,9 @@
+{
+    "variants": {
+        "normal": { "model": "roadmod:YellowCrossing" },
+        "facing=north": { "model": "roadmod:YellowCrossing" },
+        "facing=south": { "model": "roadmod:YellowCrossing", "y": 180 },
+        "facing=west":  { "model": "roadmod:YellowCrossing", "y": 270 },
+        "facing=east":  { "model": "roadmod:YellowCrossing", "y": 90 }
+    }
+}
