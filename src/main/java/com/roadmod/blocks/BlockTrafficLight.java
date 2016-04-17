@@ -37,11 +37,6 @@ public class BlockTrafficLight extends Block
 		super(Material.iron);
 		this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.SOUTH));
 	}
-	 
-	 public boolean canPlaceBlockAt(World worldIn, BlockPos pos)
-	    {
-	        return worldIn.getBlockState(pos).getBlock().isReplaceable(worldIn, pos) && World.doesBlockHaveSolidTopSurface(worldIn, pos.down());
-	    }
 	
 	public static final PropertyDirection FACING = PropertyDirection.create("facing", EnumFacing.Plane.HORIZONTAL);
 
