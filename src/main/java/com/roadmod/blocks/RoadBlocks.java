@@ -84,7 +84,7 @@ public class RoadBlocks
 		Road_Straight_Left = new BlockRoad(Material.iron).setUnlocalizedName("StraightLeft");
 		Road_Right = new BlockRoad(Material.iron).setUnlocalizedName("Right");
 		Road_Left = new BlockRoad(Material.iron).setUnlocalizedName("Left");
-		manhole = new BlockManholeCover(Material.iron).setUnlocalizedName("manhole");
+		manhole = new BlockManholeCover(Material.iron).setUnlocalizedName("manhole").setLightOpacity(0);
 		
 		/*Don't Remove This.*/
 		Block block5 = (new Block(Material.rock, MapColor.redColor)).setHardness(2.0F).setResistance(10.0F).setUnlocalizedName("brick").setLightOpacity(0);

@@ -41,9 +41,6 @@ public class BlockManholeCover extends Block
         float f1 = 1.0F;
     }
 
-    /**
-     * Used to determine ambient occlusion and culling when rebuilding chunks for render
-     */
     public boolean isOpaqueCube()
     {
         return false;
@@ -101,27 +98,27 @@ public class BlockManholeCover extends Block
             }
             else
             {
-                this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.1875F, 1.0F);
+            	this.setBlockBounds(0.0F, 0.62F, 0.0F, 1.0F, 0.812F, 1.0F);
             }
 
             if (obool.booleanValue())
             {
-                if (enumfacing == EnumFacing.NORTH)
+                if (enumfacing == EnumFacing.SOUTH)
                 {
                     this.setBlockBounds(0.0F, 0.0F, 0.8125F, 1.0F, 1.0F, 1.0F);
                 }
 
-                if (enumfacing == EnumFacing.SOUTH)
+                if (enumfacing == EnumFacing.NORTH)
                 {
                     this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 0.1875F);
                 }
 
-                if (enumfacing == EnumFacing.WEST)
+                if (enumfacing == EnumFacing.EAST)
                 {
                     this.setBlockBounds(0.8125F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
                 }
 
-                if (enumfacing == EnumFacing.EAST)
+                if (enumfacing == EnumFacing.WEST)
                 {
                     this.setBlockBounds(0.0F, 0.0F, 0.0F, 0.1875F, 1.0F, 1.0F);
                 }
@@ -157,7 +154,10 @@ public class BlockManholeCover extends Block
 
         return iblockstate;
     }
-    
+    public int getRenderType()
+    {
+        return 3;
+    }
     protected static EnumFacing getFacing(int meta)
     {
         switch (meta & 3)
@@ -194,7 +194,7 @@ public class BlockManholeCover extends Block
     @SideOnly(Side.CLIENT)
     public EnumWorldBlockLayer getBlockLayer()
     {
-        return EnumWorldBlockLayer.CUTOUT;
+        return EnumWorldBlockLayer.CUTOUT_MIPPED;
     }
 
     public IBlockState getStateFromMeta(int meta)
