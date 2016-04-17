@@ -1,20 +1,20 @@
 {
     "variants": {
-        "east=false,north=false,south=false,west=false": { "model": "roadmod:TrafficLightPole" },
-        "east=false,north=true,south=false,west=false": { "model": "roadmod:TrafficLightPoleSide", "uvlock": true },
-        "east=true,north=false,south=false,west=false": { "model": "roadmod:TrafficLightPoleSide", "y": 90, "uvlock": true },
-        "east=false,north=false,south=true,west=false": { "model": "roadmod:TrafficLightPoleSide", "y": 180, "uvlock": true },
-        "east=false,north=false,south=false,west=true": { "model": "roadmod:TrafficLightPoleSide", "y": 270, "uvlock": true },
-        "east=true,north=true,south=false,west=false": { "model": "roadmod:log_fence_ne", "uvlock": true },
-        "east=true,north=false,south=true,west=false": { "model": "roadmod:log_fence_ne", "y": 90, "uvlock": true },
-        "east=false,north=false,south=true,west=true": { "model": "roadmod:log_fence_ne", "y": 180, "uvlock": true },
-        "east=false,north=true,south=false,west=true": { "model": "roadmod:log_fence_ne", "y": 270, "uvlock": true },
-        "east=false,north=true,south=true,west=false": { "model": "roadmod:TrafficLightPoleSide", "uvlock": true },
-        "east=true,north=false,south=false,west=true": { "model": "roadmod:TrafficLightPoleSide", "y": 90, "uvlock": true },
-        "east=true,north=true,south=true,west=false": { "model": "roadmod:TrafficLightNSE", "uvlock": true },
-        "east=true,north=false,south=true,west=true": { "model": "roadmod:TrafficLightNSE", "y": 90, "uvlock": true },
-        "east=false,north=true,south=true,west=true": { "model": "roadmod:TrafficLightNSE", "y": 180, "uvlock": true },
-        "east=true,north=true,south=false,west=true": { "model": "roadmod:TrafficLightNSE", "y": 270, "uvlock": true },
-        "east=true,north=true,south=true,west=true": { "model": "roadmod:TrafficLightPostNSEW", "uvlock": true }
+        "east=false,north=false,south=false,west=false,up=false,down=true": { "model": "roadmod:TrafficLightPostD" },
+        "east=false,north=true,south=false,west=false,up=false,down=false": { "model": "roadmod:TrafficLightPoleSide", "uvlock": true },
+        "east=true,north=false,south=false,west=false,up=false,down=false"": { "model": "roadmod:TrafficLightPoleSide", "y": 90, "uvlock": true },
+        "east=false,north=false,south=true,west=false,up=false,down=false"": { "model": "roadmod:TrafficLightPoleSide", "y": 180, "uvlock": true },
+        "east=false,north=false,south=false,west=true,up=false,down=false"": { "model": "roadmod:TrafficLightPoleSide", "y": 270, "uvlock": true },
+        "east=true,north=true,south=false,west=false,up=false,down=false"": { "model": "roadmod:TrafficLightPostNE", "uvlock": true },
+        "east=true,north=false,south=true,west=false,up=false,down=false"": { "model": "roadmod:TrafficLightPostNE", "y": 90, "uvlock": true },
+        "east=false,north=false,south=true,west=true,up=false,down=false"": { "model": "roadmod:TrafficLightPostNE", "y": 180, "uvlock": true },
+        "east=false,north=true,south=false,west=true,up=false,down=false"": { "model": "roadmod:TrafficLightPostNE", "y": 270, "uvlock": true },
+        "east=false,north=true,south=true,west=false,up=false,down=false"": { "model": "roadmod:TrafficLightPoleSide", "uvlock": true },
+        "east=true,north=false,south=false,west=true,up=false,down=false"": { "model": "roadmod:TrafficLightPoleSide", "y": 90, "uvlock": true },
+        "east=true,north=true,south=true,west=false,up=false,down=false"": { "model": "roadmod:TrafficLightPostNSE", "uvlock": true },
+        "east=true,north=false,south=true,west=true,up=false,down=false"": { "model": "roadmod:TrafficLightPostNSE", "y": 90, "uvlock": true },
+        "east=false,north=true,south=true,west=true,up=false,down=false"": { "model": "roadmod:TrafficLightPostNSE", "y": 180, "uvlock": true },
+        "east=true,north=true,south=false,west=true,up=false,down=false"": { "model": "roadmod:TrafficLightPostNSE", "y": 270, "uvlock": true },
+        "east=true,north=true,south=true,west=true,up=false,down=false"": { "model": "roadmod:TrafficLightPostNSEW", "uvlock": true }
     }
 }

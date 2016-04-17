@@ -25,24 +25,25 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class BlockPole extends Block
 {
-    /** Whether this fence connects in the northern direction */
+
     public static final PropertyBool NORTH = PropertyBool.create("north");
-    /** Whether this fence connects in the eastern direction */
+
     public static final PropertyBool EAST = PropertyBool.create("east");
-    /** Whether this fence connects in the southern direction */
+
     public static final PropertyBool SOUTH = PropertyBool.create("south");
-    /** Whether this fence connects in the western direction */
+    
     public static final PropertyBool WEST = PropertyBool.create("west");
     
     public static final PropertyBool UP = PropertyBool.create("up");
     
     public static final PropertyBool DOWN = PropertyBool.create("down");
+    
     private static final String __OBFID = "CL_00000242";
 
     public BlockPole(Material materialIn)
     {
         super(materialIn);
-        this.setDefaultState(this.blockState.getBaseState().withProperty(NORTH, Boolean.valueOf(false)).withProperty(EAST, Boolean.valueOf(false)).withProperty(SOUTH, Boolean.valueOf(false)).withProperty(WEST, Boolean.valueOf(false)));
+        this.setDefaultState(this.blockState.getBaseState().withProperty(NORTH, Boolean.valueOf(false)).withProperty(EAST, Boolean.valueOf(false)).withProperty(SOUTH, Boolean.valueOf(false)).withProperty(WEST, Boolean.valueOf(false)).withProperty(UP, Boolean.valueOf(false)).withProperty(DOWN, Boolean.valueOf(false)));
     }
 
     /**
@@ -205,11 +206,11 @@ public class BlockPole extends Block
      */
     public IBlockState getActualState(IBlockState state, IBlockAccess worldIn, BlockPos pos)
     {
-        return state.withProperty(NORTH, Boolean.valueOf(this.canConnectTo(worldIn, pos.north()))).withProperty(EAST, Boolean.valueOf(this.canConnectTo(worldIn, pos.east()))).withProperty(SOUTH, Boolean.valueOf(this.canConnectTo(worldIn, pos.south()))).withProperty(WEST, Boolean.valueOf(this.canConnectTo(worldIn, pos.west())));
+        return state.withProperty(NORTH, Boolean.valueOf(this.canConnectTo(worldIn, pos.north()))).withProperty(EAST, Boolean.valueOf(this.canConnectTo(worldIn, pos.east()))).withProperty(SOUTH, Boolean.valueOf(this.canConnectTo(worldIn, pos.south()))).withProperty(WEST, Boolean.valueOf(this.canConnectTo(worldIn, pos.west()))).withProperty(UP, Boolean.valueOf(this.canConnectTo(worldIn, pos.up()))).withProperty(DOWN, Boolean.valueOf(this.canConnectTo(worldIn, pos.down())));
     }
 
     protected BlockState createBlockState()
     {
-        return new BlockState(this, new IProperty[] {NORTH, EAST, WEST, SOUTH});
+        return new BlockState(this, new IProperty[] {NORTH, EAST, WEST, SOUTH, UP, DOWN});
     }
 }

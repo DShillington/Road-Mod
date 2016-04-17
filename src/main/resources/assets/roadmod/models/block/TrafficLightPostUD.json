@@ -1,9 +1,7 @@
 {
     "__comment": "Model generated using MrCrayfish's Model Creator (http://mrcrayfish.com/modelcreator/)",
     "textures": {
-    "particle": "cabins:blocks/log",
-        "0": "cabins:blocks/log",
-        "1": "cabins:blocks/logtop"
+        "0": "blocks/Sign_Pole"
     },
     "elements": [
         {
@@ -15,8 +13,8 @@
                 "east": { "texture": "#0", "uv": [ 0.0, 0.0, 4.0, 16.0 ] },
                 "south": { "texture": "#0", "uv": [ 0.0, 0.0, 4.0, 16.0 ] },
                 "west": { "texture": "#0", "uv": [ 0.0, 0.0, 4.0, 16.0 ] },
-                "up": { "texture": "#1", "uv": [ 6.0, 6.0, 10.0, 10.0 ] },
-                "down": { "texture": "#1", "uv": [ 6.0, 6.0, 10.0, 10.0 ] }
+                "up": { "texture": "#0", "uv": [ 0.0, 0.0, 4.0, 4.0 ] },
+                "down": { "texture": "#0", "uv": [ 0.0, 0.0, 4.0, 4.0 ] }
             }
         }
     ]
