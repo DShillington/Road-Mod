@@ -3,7 +3,9 @@ package com.roadmod;
 import com.roadmod.blocks.RoadBlocks;
 import com.roadmod.items.RoadItems;
 import com.roadmod.proxy.CommonProxy;
-import com.roadmod.tabs.RoadTab;
+import com.roadmod.tabs.AsphaultTab;
+import com.roadmod.tabs.SignTab;
+import com.roadmod.tabs.MiscTab;
 import com.roadmod.util.Reference;
 
 import net.minecraft.creativetab.CreativeTabs;
@@ -30,7 +32,9 @@ public class RoadMod
 
     public static boolean isCarsAndDrivesLoaded;
     
-    public static CreativeTabs RoadTab = new RoadTab("tabRoad");
+    public static CreativeTabs AsphaultTab = new AsphaultTab("tabRoadAsphault");
+    public static CreativeTabs SignTab = new SignTab("tabRoadSign");
+    public static CreativeTabs MiscTab = new MiscTab("tabRoadMisc");
 	
     @EventHandler
     public void init(FMLInitializationEvent event)
