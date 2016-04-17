@@ -24,7 +24,8 @@ public class RoadBlocks
 	//Road Lines (Yellow)
 	public static Block Road_Yellow_Middle_Solid,Road_Yellow_Middle_Dotted, Road_Yellow_Side_Solid, 
 	Road_Yellow_Side_Corner, Road_Yellow_Side_Corner_Out, Road_Yellow_Cross, Road_Yellow_T, 
-	Road_Yellow_Passing, Road_Yellow_X, Road_Yellow_X_Side, Road_Crossing_Yellow; 
+	Road_Yellow_Passing, Road_Yellow_X, Road_Yellow_X_Side, Road_Crossing_Yellow,
+	Road_Crossing_Yellow_Corner; 
 	//Road Symbols
 	public static Block Road_Straight, Road_Straight_Right, Road_Straight_Left, Road_Right,
 	Road_Left, Road_Handicap;
@@ -73,6 +74,7 @@ public class RoadBlocks
 		Road_Yellow_Cross = new BlockRoad(Material.iron).setUnlocalizedName("YellowCross");
 		Road_Yellow_T = new BlockRoad(Material.iron).setUnlocalizedName("YellowT");
 		Road_Crossing_Yellow = new BlockRoad(Material.iron).setUnlocalizedName("YellowCrossing");
+		Road_Crossing_Yellow_Corner = new BlockRoad(Material.iron).setUnlocalizedName("YellowCrossingCorner");
 		Road_Yellow_Passing = new BlockRoad(Material.iron).setUnlocalizedName("YellowPassing");
 		Road_Yellow_X = new BlockRoad(Material.iron).setUnlocalizedName("YellowX");
 		Road_Yellow_X_Side = new BlockRoad(Material.iron).setUnlocalizedName("YellowXSide");
@@ -165,6 +167,7 @@ public class RoadBlocks
 		GameRegistry.registerBlock(Road_Yellow_Cross, Road_Yellow_Cross.getUnlocalizedName().substring(5)).setHardness(1.5F).setResistance(10.0F).setCreativeTab(RoadMod.RoadTab);
 		GameRegistry.registerBlock(Road_Yellow_T, Road_Yellow_T.getUnlocalizedName().substring(5)).setHardness(1.5F).setResistance(10.0F).setCreativeTab(RoadMod.RoadTab);
 		GameRegistry.registerBlock(Road_Crossing_Yellow, Road_Crossing_Yellow.getUnlocalizedName().substring(5)).setHardness(1.5F).setResistance(10.0F).setCreativeTab(RoadMod.RoadTab);
+		GameRegistry.registerBlock(Road_Crossing_Yellow_Corner, Road_Crossing_Yellow_Corner.getUnlocalizedName().substring(5)).setHardness(1.5F).setResistance(10.0F).setCreativeTab(RoadMod.RoadTab);
 		GameRegistry.registerBlock(Road_Yellow_Passing, Road_Yellow_Passing.getUnlocalizedName().substring(5)).setHardness(1.5F).setResistance(10.0F).setCreativeTab(RoadMod.RoadTab);
 		GameRegistry.registerBlock(Road_Yellow_X, Road_Yellow_X.getUnlocalizedName().substring(5)).setHardness(1.5F).setResistance(10.0F).setCreativeTab(RoadMod.RoadTab);
 		GameRegistry.registerBlock(Road_Yellow_X_Side, Road_Yellow_X_Side.getUnlocalizedName().substring(5)).setHardness(1.5F).setResistance(10.0F).setCreativeTab(RoadMod.RoadTab);
@@ -259,6 +262,7 @@ public class RoadBlocks
 		RegisterRender(Road_Yellow_Cross);	
 		RegisterRender(Road_Yellow_T);
 		RegisterRender(Road_Crossing_Yellow);
+		RegisterRender(Road_Crossing_Yellow_Corner);
 		RegisterRender(Road_Yellow_Passing);
 		RegisterRender(Road_Yellow_X);
 		RegisterRender(Road_Yellow_X_Side);

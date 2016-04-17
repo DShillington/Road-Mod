@@ -88,4 +88,9 @@ tile.RailRoad.name= Rail Road
 tile.RailRoadPowered.name= Powered Rail Road
 tile.RailRoadDetector.name= Detector Rail Road
 tile.RailRoadCrossingSign.name= Rail Road Crossing Sign
-
+tile.RoadHandicap.name= Painted Asphalt
+tile.YellowPassing.name= Painted Asphalt
+tile.YellowXSide.name= Painted Asphalt
+tile.YellowX.name= Painted Asphalt
+tile.YellowCrossing.name= Painted Asphalt
+tile.YellowCrossingCorner.name= Painted Asphalt
