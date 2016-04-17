@@ -1,8 +1,24 @@
 {
     "variants": {
-        "facing=north": { "model": "roadmod:Guardrail" },
-        "facing=south": { "model": "roadmod:Guardrail", "y": 180 },
-        "facing=west":  { "model": "roadmod:Guardrail", "y": 270 },
-        "facing=east":  { "model": "roadmod:Guardrail", "y": 90 }
-    }
+        "facing=east,half=bottom,shape=straight":  { "model": "roadmod:Guardrail", "y": 270, "uvlock": true },
+        "facing=west,half=bottom,shape=straight":  { "model": "roadmod:Guardrail", "y": 90, "uvlock": true },
+        "facing=south,half=bottom,shape=straight": { "model": "roadmod:Guardrail"},
+        "facing=north,half=bottom,shape=straight": { "model": "roadmod:Guardrail", "y": 180, "uvlock": true },
+        "facing=east,half=bottom,shape=outer_right":  { "model": "roadmod:GuardrailCorner" },
+        "facing=west,half=bottom,shape=outer_right":  { "model": "roadmod:GuardrailCorner", "y": 180, "uvlock": true },
+        "facing=south,half=bottom,shape=outer_right": { "model": "roadmod:GuardrailCorner", "y": 90, "uvlock": true },
+        "facing=north,half=bottom,shape=outer_right": { "model": "roadmod:GuardrailCorner", "y": 270, "uvlock": true },
+        "facing=east,half=bottom,shape=outer_left":  { "model": "roadmod:GuardrailCorner", "y": 270, "uvlock": true },
+        "facing=west,half=bottom,shape=outer_left":  { "model": "roadmod:GuardrailCorner", "y": 90, "uvlock": true },
+        "facing=south,half=bottom,shape=outer_left": { "model": "roadmod:GuardrailCorner" },
+        "facing=north,half=bottom,shape=outer_left": { "model": "roadmod:GuardrailCorner", "y": 180, "uvlock": true },
+        "facing=east,half=bottom,shape=inner_right":  { "model": "roadmod:GuardrailPost" },
+        "facing=west,half=bottom,shape=inner_right":  { "model": "roadmod:GuardrailPost", "y": 180, "uvlock": true },
+        "facing=south,half=bottom,shape=inner_right": { "model": "roadmod:GuardrailPost", "y": 90, "uvlock": true },
+        "facing=north,half=bottom,shape=inner_right": { "model": "roadmod:GuardrailPost", "y": 270, "uvlock": true },
+        "facing=east,half=bottom,shape=inner_left":  { "model": "roadmod:GuardrailPost", "y": 270, "uvlock": true },
+        "facing=west,half=bottom,shape=inner_left":  { "model": "roadmod:GuardrailPost", "y": 90, "uvlock": true },
+        "facing=south,half=bottom,shape=inner_left": { "model": "roadmod:GuardrailPost" },
+        "facing=north,half=bottom,shape=inner_left": { "model": "roadmod:GuardrailPost", "y": 180, "uvlock": true }
+        }
 }

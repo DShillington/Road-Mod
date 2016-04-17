@@ -5,9 +5,11 @@ import com.roadmod.util.Reference;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockTorch;
+import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.resources.model.ModelResourceLocation;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidRegistry;
@@ -83,7 +85,12 @@ public class RoadBlocks
 		Road_Right = new BlockRoad(Material.iron).setUnlocalizedName("Right");
 		Road_Left = new BlockRoad(Material.iron).setUnlocalizedName("Left");
 		manhole = new BlockManholeCover(Material.iron).setUnlocalizedName("manhole");
-		Road_Guard = new BlockRoad(Material.iron).setUnlocalizedName("Guardrail");
+		
+		/*Don't Remove This.*/
+		Block block5 = (new Block(Material.rock, MapColor.redColor)).setHardness(2.0F).setResistance(10.0F).setUnlocalizedName("brick").setLightOpacity(0);
+        
+		
+		Road_Guard = new BlockGuardRail(block5.getDefaultState()).setUnlocalizedName("Guardrail").setLightOpacity(0);
 		Road_Guard_Corner = new BlockRoad(Material.iron).setUnlocalizedName("GuardrailCorner");
 		Road_Pothole = new BlockRoad(Material.iron).setUnlocalizedName("Pothole");
 		Road_Speedbump = new BlockRoad(Material.iron).setUnlocalizedName("SpeedBump");
