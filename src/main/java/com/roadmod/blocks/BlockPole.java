@@ -4,6 +4,7 @@ import java.util.List;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFenceGate;
+import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyBool;
@@ -11,206 +12,169 @@ import net.minecraft.block.state.BlockState;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
-import net.minecraft.item.ItemLead;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
-import net.minecraft.util.EnumWorldBlockLayer;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class BlockPole extends Block
-{
-
-    public static final PropertyBool NORTH = PropertyBool.create("north");
-
-    public static final PropertyBool EAST = PropertyBool.create("east");
+public class BlockPole extends Block {
+	
 
     public static final PropertyBool SOUTH = PropertyBool.create("south");
-    
+    public static final PropertyBool NORTH = PropertyBool.create("north");
+    public static final PropertyBool EAST = PropertyBool.create("east");
     public static final PropertyBool WEST = PropertyBool.create("west");
-    
     public static final PropertyBool UP = PropertyBool.create("up");
-    
     public static final PropertyBool DOWN = PropertyBool.create("down");
     
-    private static final String __OBFID = "CL_00000242";
-
-    public BlockPole(Material materialIn)
-    {
-        super(materialIn);
-        this.setDefaultState(this.blockState.getBaseState().withProperty(NORTH, Boolean.valueOf(false)).withProperty(EAST, Boolean.valueOf(false)).withProperty(SOUTH, Boolean.valueOf(false)).withProperty(WEST, Boolean.valueOf(false)).withProperty(UP, Boolean.valueOf(false)).withProperty(DOWN, Boolean.valueOf(false)));
+    public BlockPole(){
+    	super(Material.iron);
+	    this.setDefaultState(this.blockState.getBaseState()
+	    		.withProperty(WEST, false)
+	    		.withProperty(DOWN, false)
+	    		.withProperty(SOUTH, false)
+	    		.withProperty(EAST, false)
+	    		.withProperty(UP, false)
+	    		.withProperty(NORTH, false));
     }
-
-    /**
-     * Add all collision boxes of this Block to the list that intersect with the given mask.
-     *  
-     * @param collidingEntity the Entity colliding with this Block
-     */
-    public void addCollisionBoxesToList(World worldIn, BlockPos pos, IBlockState state, AxisAlignedBB mask, List list, Entity collidingEntity)
-    {
-        boolean flag = this.canConnectTo(worldIn, pos.north());
-        boolean flag1 = this.canConnectTo(worldIn, pos.south());
-        boolean flag2 = this.canConnectTo(worldIn, pos.west());
-        boolean flag3 = this.canConnectTo(worldIn, pos.east());
-        boolean flag4 = this.canConnectTo(worldIn, pos.up());
-        boolean flag5 = this.canConnectTo(worldIn, pos.down());
-        float f = 0.375F;
-        float f1 = 0.625F;
-        float f2 = 0.375F;
-        float f3 = 0.625F;
-
-        if (flag)
-        {
-            f2 = 0.0F;
-        }
-
-        if (flag1)
-        {
-            f3 = 1.0F;
-        }
-
-        if (flag || flag1)
-        {
-            this.setBlockBounds(f, 0.0F, f2, f1, 1.5F, f3);
-            super.addCollisionBoxesToList(worldIn, pos, state, mask, list, collidingEntity);
-        }
-
-        f2 = 0.375F;
-        f3 = 0.625F;
-
-        if (flag2)
-        {
-            f = 0.0F;
-        }
-
-        if (flag3)
-        {
-            f1 = 1.0F;
-        }
-
-        if (flag2 || flag3 || !flag && !flag1)
-        {
-            this.setBlockBounds(f, 0.0F, f2, f1, 1.5F, f3);
-            super.addCollisionBoxesToList(worldIn, pos, state, mask, list, collidingEntity);
-        }
-
-        if (flag)
-        {
-            f2 = 0.0F;
-        }
-
-        if (flag1)
-        {
-            f3 = 1.0F;
-        }
-
-        this.setBlockBounds(f, 0.0F, f2, f1, 1.0F, f3);
+    
+    @Override
+    protected BlockState createBlockState() {
+        return new BlockState(this, new IProperty[] { WEST, DOWN, SOUTH, EAST, UP, NORTH });
     }
+    
+    @Override
+    public void addCollisionBoxesToList(final World world, final BlockPos coord, 
+    		final IBlockState bs, final AxisAlignedBB box, final List collisionBoxList, 
+    		final Entity entity) {
+        final boolean connectNorth = this.canConnectTo(world, coord.north());
+        final boolean connectSouth = this.canConnectTo(world, coord.south());
+        final boolean connectWest = this.canConnectTo(world, coord.west());
+        final boolean connectEast = this.canConnectTo(world, coord.east());
+        final boolean connectUp = this.canConnectTo(world, coord.up());
+        final boolean connectDown = this.canConnectTo(world, coord.down());
+        
+        float radius = 4f / 16f / 2f;
+        float rminus = 0.5f - radius;
+        float rplus = 0.5f + radius;
+        
+        this.setBlockBounds(rminus, rminus, rminus, rplus, rplus, rplus);
+        super.addCollisionBoxesToList(world, coord, bs, box, collisionBoxList, entity);
 
-    public void setBlockBoundsBasedOnState(IBlockAccess worldIn, BlockPos pos)
-    {
-        boolean flag = this.canConnectTo(worldIn, pos.north());
-        boolean flag1 = this.canConnectTo(worldIn, pos.south());
-        boolean flag2 = this.canConnectTo(worldIn, pos.west());
-        boolean flag3 = this.canConnectTo(worldIn, pos.east());
-        boolean flag4 = this.canConnectTo(worldIn, pos.up());
-        boolean flag5 = this.canConnectTo(worldIn, pos.down());
-        float f = 0.375F;
-        float f1 = 0.625F;
-        float f2 = 0.375F;
-        float f3 = 0.625F;
-
-        if (flag)
-        {
-            f2 = 0.0F;
+        if(connectUp){
+            this.setBlockBounds(rminus, rminus, rminus, rplus, 1f, rplus);
+            super.addCollisionBoxesToList(world, coord, bs, box, collisionBoxList, entity);
         }
-
-        if (flag1)
-        {
-            f3 = 1.0F;
+        if(connectDown){
+            this.setBlockBounds(rminus, 0f, rminus, rplus, rplus, rplus);
+            super.addCollisionBoxesToList(world, coord, bs, box, collisionBoxList, entity);
         }
-
-        if (flag2)
-        {
-            f = 0.0F;
+        if(connectEast){
+            this.setBlockBounds(rminus, rminus, rminus, 1f, rplus, rplus);
+            super.addCollisionBoxesToList(world, coord, bs, box, collisionBoxList, entity);
         }
-
-        if (flag3)
-        {
-            f1 = 1.0F;
+        if(connectWest){
+            this.setBlockBounds(0f, rminus, rminus, rplus, rplus, rplus);
+            super.addCollisionBoxesToList(world, coord, bs, box, collisionBoxList, entity);
         }
-
-        this.setBlockBounds(f, 0.0F, f2, f1, 1.0F, f3);
+        if(connectSouth){
+            this.setBlockBounds(rminus, rminus, rminus, rplus, rplus, 1f);
+            super.addCollisionBoxesToList(world, coord, bs, box, collisionBoxList, entity);
+        }
+        if(connectNorth){
+            this.setBlockBounds(rminus, rminus, 0f, rplus, rplus, rplus);
+            super.addCollisionBoxesToList(world, coord, bs, box, collisionBoxList, entity);
+        }
     }
+    
 
-    public boolean isOpaqueCube()
-    {
+    @Override
+    public void setBlockBoundsBasedOnState(final IBlockAccess world, final BlockPos coord) {
+        final boolean connectNorth = this.canConnectTo(world, coord.north());
+        final boolean connectSouth = this.canConnectTo(world, coord.south());
+        final boolean connectWest = this.canConnectTo(world, coord.west());
+        final boolean connectEast = this.canConnectTo(world, coord.east());
+        final boolean connectUp = this.canConnectTo(world, coord.up());
+        final boolean connectDown = this.canConnectTo(world, coord.down());
+        
+        float radius = 4f / 16f / 2f;
+        float rminus = 0.5f - radius;
+        float rplus = 0.5f + radius;
+        
+        float x1 = rminus;
+        float x2 = rplus;
+        float y1 = rminus;
+        float y2 = rplus;
+        float z1 = rminus;
+        float z2 = rplus;
+        if (connectNorth) {
+            z1 = 0.0f;
+        }
+        if (connectSouth) {
+            z2 = 1.0f;
+        }
+        if (connectWest) {
+            x1 = 0.0f;
+        }
+        if (connectEast) {
+            x2 = 1.0f;
+        }
+        if(connectDown){
+        	y1 = 0.0f;
+        }
+        if(connectUp){
+        	y2 = 1.0f;
+        }
+        this.setBlockBounds(x1, y1, z1, x2, y2, z2);
+    }
+    
+    @Override
+    public boolean isOpaqueCube() {
         return false;
     }
-
-    public boolean isFullCube()
-    {
+    
+    @Override
+    public boolean isFullCube() {
         return false;
     }
-
-    public boolean isPassable(IBlockAccess worldIn, BlockPos pos)
-    {
+    
+    @Override
+    public boolean isPassable(final IBlockAccess world, final BlockPos coord) {
         return false;
+    }
+    
+    
+    @Override
+    public int getMetaFromState(final IBlockState bs) {
+        return 0;
+    }
+    
+    
+    @SideOnly(Side.CLIENT)
+    @Override
+    public boolean shouldSideBeRendered(final IBlockAccess world, final BlockPos coord, final EnumFacing face) {
+        return true;
+    }
+    
+    @Override
+    public IBlockState getActualState(final IBlockState bs, final IBlockAccess world, final BlockPos coord) {
+        return bs
+        		.withProperty(WEST, this.canConnectTo(world, coord.west()))
+        		.withProperty(DOWN, this.canConnectTo(world, coord.down()))
+        		.withProperty(SOUTH, this.canConnectTo(world, coord.south()))
+        		.withProperty(EAST, this.canConnectTo(world, coord.east()))
+        		.withProperty(UP, this.canConnectTo(world, coord.up()))
+        		.withProperty(NORTH, this.canConnectTo(world, coord.north()));
     }
 
     public boolean canConnectTo(IBlockAccess worldIn, BlockPos pos)
     {
         Block block = worldIn.getBlockState(pos).getBlock();
         return block == Blocks.barrier ? false : ((!(block instanceof BlockPole) || block.getMaterial() != this.blockMaterial) && !(block instanceof BlockFenceGate) ? (block.getMaterial().isOpaque() && block.isFullCube() ? block.getMaterial() != Material.gourd : false) : true);
-    }
-
-    @SideOnly(Side.CLIENT)
-    public boolean shouldSideBeRendered(IBlockAccess worldIn, BlockPos pos, EnumFacing side)
-    {
-        return true;
-    }
-
-    /**
-    public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumFacing side, float hitX, float hitY, float hitZ)
-    {
-        return worldIn.isRemote ? true : ItemLead.attachToFence(playerIn, worldIn, pos);
-    }
-*/
-    /**
-     * Convert the BlockState into the correct metadata value
-     */
-    public int getMetaFromState(IBlockState state)
-    {
-        return 0;
-    }
-    
-    public int getRenderType()
-    {
-        return 3;
-    }
-    
-    @SideOnly(Side.CLIENT)
-    public EnumWorldBlockLayer getBlockLayer()
-    {
-    	return EnumWorldBlockLayer.CUTOUT_MIPPED;
-    }
-
-    /**
-     * Get the actual Block state of this Block at the given position. This applies properties not visible in the
-     * metadata, such as fence connections.
-     */
-    public IBlockState getActualState(IBlockState state, IBlockAccess worldIn, BlockPos pos)
-    {
-        return state.withProperty(NORTH, Boolean.valueOf(this.canConnectTo(worldIn, pos.north()))).withProperty(EAST, Boolean.valueOf(this.canConnectTo(worldIn, pos.east()))).withProperty(SOUTH, Boolean.valueOf(this.canConnectTo(worldIn, pos.south()))).withProperty(WEST, Boolean.valueOf(this.canConnectTo(worldIn, pos.west()))).withProperty(UP, Boolean.valueOf(this.canConnectTo(worldIn, pos.up()))).withProperty(DOWN, Boolean.valueOf(this.canConnectTo(worldIn, pos.down())));
-    }
-
-    protected BlockState createBlockState()
-    {
-        return new BlockState(this, new IProperty[] {NORTH, EAST, WEST, SOUTH, UP, DOWN});
     }
 }

@@ -110,7 +110,7 @@ public class RoadBlocks
 		Sidewalk = new BlockSidewalk(Material.iron).setUnlocalizedName("Sidewalk");
 		Sidewalk_Drain = new BlockSidewalk(Material.iron).setUnlocalizedName("SidewalkDrain");
 		Traffic_Light = new BlockTrafficLight(Material.iron).setUnlocalizedName("TrafficLight");
-		Traffic_Light_Pole = new BlockPole(Material.iron).setUnlocalizedName("TrafficLightPoleTest");
+		Traffic_Light_Pole = new BlockPole().setUnlocalizedName("TrafficLightPoleTest").setLightOpacity(0);
 		Traffic_Light_Pole_Side = new BlockTrafficLightPole(Material.iron).setUnlocalizedName("TrafficLightPoleSide");
 		Traffic_Light_Pole_Corner = new BlockTrafficLightPole(Material.iron).setUnlocalizedName("TrafficLightPoleCorner");
 		Street_Light = new BlockTrafficLight(Material.iron).setLightLevel(1.0F).setUnlocalizedName("StreetLight");
