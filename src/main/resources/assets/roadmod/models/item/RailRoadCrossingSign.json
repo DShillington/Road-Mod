@@ -1,7 +1,7 @@
 {
     "__comment": "Model generated using MrCrayfish's Model Creator (http://mrcrayfish.com/modelcreator/)",
     "textures": {
-        "0": "roadmod:blocks/RailRoad_Cross_Sign"
+        "0": "roadmod:blocks/signs/RailRoad_Cross_Sign"
     },
     "elements": [
         {

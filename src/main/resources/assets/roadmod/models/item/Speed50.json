@@ -1,9 +1,9 @@
 {
     "__comment": "Model generated using MrCrayfish's Model Creator (http://mrcrayfish.com/modelcreator/)",
     "textures": {
-        "0": "roadmod:blocks/Sign_Pole",
-        "1": "roadmod:blocks/Speed_KM_50",
-        "2": "roadmod:blocks/Speed_Back"
+        "0": "roadmod:blocks/signs/Sign_Pole",
+        "1": "roadmod:blocks/signs/Speed_KM_50",
+        "2": "roadmod:blocks/signs/Speed_Back"
     },
     "elements": [
         {

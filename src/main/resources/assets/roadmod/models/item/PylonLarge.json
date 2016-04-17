@@ -1,9 +1,9 @@
 {
     "__comment": "Model generated using MrCrayfish's Model Creator (http://mrcrayfish.com/modelcreator/)",
     "textures": {
-        "0": "roadmod:blocks/Pylon_Black",
-        "1": "roadmod:blocks/Pylon_Orange_White",
-        "2": "roadmod:blocks/Pylon_Orange"
+        "0": "roadmod:blocks/misc/Pylon_Black",
+        "1": "roadmod:blocks/misc/Pylon_Orange_White",
+        "2": "roadmod:blocks/misc/Pylon_Orange"
     },
     "elements": [
         {

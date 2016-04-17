@@ -1,7 +1,7 @@
 {
     "textures": {
         "particle": "#texture",
-        "0": "roadmod:blocks/Manhole_cover"
+        "0": "roadmod:blocks/asphalt/Manhole_cover"
     },
     "elements": [
         {   "from": [ 0, 10, 0 ],

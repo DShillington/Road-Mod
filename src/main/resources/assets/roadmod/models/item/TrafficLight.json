@@ -1,11 +1,11 @@
 {
     "__comment": "Model generated using MrCrayfish's Model Creator (http://mrcrayfish.com/modelcreator/)",
     "textures": {
-        "0": "roadmod:blocks/Traffic_Light_Shell",
-        "1": "roadmod:blocks/Traffic_Light_Red",
-        "2": "roadmod:blocks/Traffic_Light_Yellow",
-        "3": "roadmod:blocks/Traffic_Light_Green",
-        "4": "roadmod:blocks/Traffic_Light_Covers"
+        "0": "roadmod:blocks/misc/Traffic_Light_Shell",
+        "1": "roadmod:blocks/misc/Traffic_Light_Red",
+        "2": "roadmod:blocks/misc/Traffic_Light_Yellow",
+        "3": "roadmod:blocks/misc/Traffic_Light_Green",
+        "4": "roadmod:blocks/misc/Traffic_Light_Covers"
     },
     "elements": [
         {

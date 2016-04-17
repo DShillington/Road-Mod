@@ -1,10 +1,10 @@
 {
     "__comment": "Model generated using MrCrayfish's Model Creator (http://mrcrayfish.com/modelcreator/)",
     "textures": {
-        "0": "roadmod:blocks/Sign_Pole",
-        "1": "roadmod:blocks/Traffic_Light_Covers",
-        "2": "roadmod:blocks/crosswalk",
-        "3": "roadmod:blocks/crosswalk_yellow"
+        "0": "roadmod:blocks/signs/Sign_Pole",
+        "1": "roadmod:blocks/misc/Traffic_Light_Covers",
+        "2": "roadmod:blocks/misc/crosswalk",
+        "3": "roadmod:blocks/misc/crosswalk_yellow"
     },
     "elements": [
         {

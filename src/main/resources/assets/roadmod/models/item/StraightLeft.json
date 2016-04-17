@@ -1,8 +1,8 @@
 {
     "__comment": "Model generated using MrCrayfish's Model Creator (http://mrcrayfish.com/modelcreator/)",
     "textures": {
-        "0": "roadmod:blocks/road",
-        "1": "roadmod:blocks/road_straight_left"
+        "0": "roadmod:blocks/asphalt/road",
+        "1": "roadmod:blocks/asphalt/road_straight_left"
     },
     "elements": [
         {
