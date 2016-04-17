@@ -48,7 +48,8 @@ public class RoadBlocks
 	Sign_Do_Not_Enter, Sign_No_Uturn, Sign_Yes_Uturn, Sign_One_Way_Left, Sign_One_Way_Right, Sign_Yeild,
 	Sign_Crosswalk, Sign_Intersection_Left, Sign_Intersection_Right, Sign_Crossing_Railroad, Sign_Crossing_Cow,
 	Sign_Stop_Ahead, Sign_Construction, Sign_Construction_End, Sign_Detour_Left, Sign_Detour_Right, 
-	Sign_Merge_Left, Sign_Merge_Right, Sign_StopSign_Ahead, Sign_Road_Block, RailRoad_Crossing_Sign;
+	Sign_Merge_Left, Sign_Merge_Right, Sign_StopSign_Ahead, Sign_Road_Block, RailRoad_Crossing_Sign,
+	Sign_Speed;
 	//Misc
 	public static Block Fire_Hydrant, Parking_Meter;
 	
@@ -141,6 +142,8 @@ public class RoadBlocks
 		Sign_Merge_Right = new BlockRoadSign(Material.iron).setUnlocalizedName("MergeRight");
 		Sign_StopSign_Ahead = new BlockRoadSign(Material.iron).setUnlocalizedName("StopSignAhead");
 		Sign_Road_Block = new BlockRoadSign(Material.iron).setUnlocalizedName("RoadBlockSign");
+		Sign_Speed = new BlockSpeedSign(Material.iron).setUnlocalizedName("SignSpeed");
+		
 		Fire_Hydrant = new BlockFireHydrant(Material.iron).setUnlocalizedName("FireHydrant");
 		Parking_Meter = new BlockRoadSign(Material.iron).setUnlocalizedName("ParkingMeter");
 		RailRoad_Crossing_Sign = new BlockRoadSign(Material.iron).setUnlocalizedName("RailRoadCrossingSign");
@@ -234,6 +237,7 @@ public class RoadBlocks
 		GameRegistry.registerBlock(Sign_Merge_Right, Sign_Merge_Right.getUnlocalizedName().substring(5)).setHardness(1.5F).setResistance(10.0F).setCreativeTab(RoadMod.SignTab);
 		GameRegistry.registerBlock(Sign_StopSign_Ahead, Sign_StopSign_Ahead.getUnlocalizedName().substring(5)).setHardness(1.5F).setResistance(10.0F).setCreativeTab(RoadMod.SignTab);
 		GameRegistry.registerBlock(Sign_Road_Block, Sign_Road_Block.getUnlocalizedName().substring(5)).setHardness(1.5F).setResistance(10.0F).setCreativeTab(RoadMod.MiscTab);
+		GameRegistry.registerBlock(Sign_Speed, Sign_Speed.getUnlocalizedName().substring(5)).setHardness(1.5F).setResistance(10.0F).setCreativeTab(RoadMod.SignTab);
 		GameRegistry.registerBlock(Fire_Hydrant, Fire_Hydrant.getUnlocalizedName().substring(5)).setHardness(1.5F).setResistance(10.0F).setCreativeTab(RoadMod.MiscTab);
 		GameRegistry.registerBlock(Parking_Meter, Parking_Meter.getUnlocalizedName().substring(5)).setHardness(1.5F).setResistance(10.0F).setCreativeTab(RoadMod.MiscTab);
 		GameRegistry.registerBlock(RailRoad_Crossing_Sign, RailRoad_Crossing_Sign.getUnlocalizedName().substring(5)).setHardness(1.5F).setResistance(10.0F).setCreativeTab(RoadMod.SignTab);
@@ -329,6 +333,7 @@ public class RoadBlocks
 		RegisterRender(Sign_Merge_Right);
 		RegisterRender(Sign_StopSign_Ahead);
 		RegisterRender(Sign_Road_Block);
+		RegisterRender(Sign_Speed);
 		RegisterRender(Fire_Hydrant);
 		RegisterRender(Parking_Meter);
 		RegisterRender(RailRoad_Crossing_Sign);
