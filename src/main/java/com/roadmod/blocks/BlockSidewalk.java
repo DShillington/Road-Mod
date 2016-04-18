@@ -5,6 +5,7 @@ import java.util.Random;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockGlass;
 import net.minecraft.block.BlockWorkbench;
+import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyBool;
@@ -33,7 +34,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class BlockSidewalk extends Block
 {
 	
-	 public BlockSidewalk(Material materialIn) {
+	 public BlockSidewalk(Material materialIn, MapColor graycolor) {
 		super(Material.iron);
 		this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.SOUTH));
 	}

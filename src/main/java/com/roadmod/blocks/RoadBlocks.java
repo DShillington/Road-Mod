@@ -19,7 +19,7 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 public class RoadBlocks 
 	{
 	//Road Base
-	public static Block Road;
+	public static Block Road, Road_Full, RoadSlab;
 	//Road Lines (White)
 	public static Block Road_White_Middle_Solid, Road_White_Middle_Dotted,Road_White_Side_Solid,
 	Road_White_Side_Corner, Road_White_Side_Corner_Out, Road_White_Cross, Road_White_T, Road_Crossing_White;
@@ -32,7 +32,7 @@ public class RoadBlocks
 	public static Block Road_Straight, Road_Straight_Right, Road_Straight_Left, Road_Right,
 	Road_Left, Road_Handicap;
 	//Other Road Blocks
-	public static Block manhole, Road_Guard, Road_Guard_Corner, Road_Pothole, Road_Speedbump, Road_Curb,
+	public static Block manhole, Road_Guard, Road_Pothole, Road_Speedbump, Road_Curb,
 	Road_Curb_Green, Road_Curb_Blue, Road_Curb_White, Road_Curb_Red, Road_Curb_Yellow, Road_Curb_Outer_Corner,
 	Road_Curb_Green_Outer_Corner, Road_Curb_Blue_Outer_Corner, Road_Curb_White_Outer_Corner,
 	Road_Curb_Red_Outer_Corner, Road_Curb_Yellow_Outer_Corner, Road_Curb_Inner_Corner, 
@@ -41,7 +41,7 @@ public class RoadBlocks
 	//Pathways
 	public static Block Sidewalk, Sidewalk_Drain;
 	//Light Pole Stuff
-	public static Block Traffic_Light, Traffic_Light_Pole, Traffic_Light_Pole_Side, Traffic_Light_Pole_Corner,
+	public static Block Traffic_Light, Traffic_Light_Pole,
 	Street_Light, Sign_Crossing;
 	//Pylons
 	public static Block Pylon_Stick, Pylon_Triangle, Pylon_Large;
@@ -57,72 +57,69 @@ public class RoadBlocks
 	
 	public static void init()
 	{
-		Road = new BlockRoad(Material.iron).setUnlocalizedName("Road");
-		Road_White_Middle_Solid = new BlockRoad(Material.iron).setUnlocalizedName("WhiteMiddleSolid");
-		Road_White_Middle_Dotted = new BlockRoad(Material.iron).setUnlocalizedName("WhiteMiddleDotted");
-		Road_White_Side_Solid = new BlockRoad(Material.iron).setUnlocalizedName("WhiteSideSolid");
-		Road_White_Side_Corner = new BlockRoad(Material.iron).setUnlocalizedName("WhiteSideCorner");
-		Road_White_Side_Corner_Out = new BlockRoad(Material.iron).setUnlocalizedName("WhiteSideCornerOut");
-		Road_White_Cross = new BlockRoad(Material.iron).setUnlocalizedName("WhiteCross");
-		Road_White_T = new BlockRoad(Material.iron).setUnlocalizedName("WhiteT");
-		Road_Crossing_White = new BlockRoad(Material.iron).setUnlocalizedName("Crossing");
-		Road_Yellow_Middle_Solid = new BlockRoad(Material.iron).setUnlocalizedName("YellowMiddleSolid");
-		Road_Yellow_Middle_Dotted = new BlockRoad(Material.iron).setUnlocalizedName("YellowMiddleDotted");
-		Road_Yellow_Side_Solid = new BlockRoad(Material.iron).setUnlocalizedName("YellowSideSolid");
-		Road_Yellow_Side_Corner = new BlockRoad(Material.iron).setUnlocalizedName("YellowSideCorner");
-		Road_Yellow_Side_Corner_Out = new BlockRoad(Material.iron).setUnlocalizedName("YellowSideCornerOut");
-		Road_Yellow_Side_Corner_Out = new BlockRoad(Material.iron).setUnlocalizedName("YellowSideCornerOut");
-		Road_Yellow_Cross = new BlockRoad(Material.iron).setUnlocalizedName("YellowCross");
-		Road_Yellow_T = new BlockRoad(Material.iron).setUnlocalizedName("YellowT");
-		Road_Crossing_Yellow = new BlockRoad(Material.iron).setUnlocalizedName("YellowCrossing");
-		Road_Crossing_Yellow_Corner = new BlockRoad(Material.iron).setUnlocalizedName("YellowCrossingCorner");
-		Road_Yellow_Passing = new BlockRoad(Material.iron).setUnlocalizedName("YellowPassing");
-		Road_Yellow_X = new BlockRoad(Material.iron).setUnlocalizedName("YellowX");
-		Road_Yellow_X_Side = new BlockRoad(Material.iron).setUnlocalizedName("YellowXSide");
-		Road_Straight = new BlockRoad(Material.iron).setUnlocalizedName("Straight");
-		Road_Straight_Right = new BlockRoad(Material.iron).setUnlocalizedName("StraightRight");
-		Road_Straight_Left = new BlockRoad(Material.iron).setUnlocalizedName("StraightLeft");
-		Road_Right = new BlockRoad(Material.iron).setUnlocalizedName("Right");
-		Road_Left = new BlockRoad(Material.iron).setUnlocalizedName("Left");
+		Road = new BlockRoad(Material.iron, MapColor.blackColor).setUnlocalizedName("Road");
+		Road_White_Middle_Solid = new BlockRoad(Material.iron, MapColor.ironColor).setUnlocalizedName("WhiteMiddleSolid");
+		Road_White_Middle_Dotted = new BlockRoad(Material.iron, MapColor.ironColor).setUnlocalizedName("WhiteMiddleDotted");
+		Road_White_Side_Solid = new BlockRoad(Material.iron, MapColor.ironColor).setUnlocalizedName("WhiteSideSolid");
+		Road_White_Side_Corner = new BlockRoad(Material.iron, MapColor.ironColor).setUnlocalizedName("WhiteSideCorner");
+		Road_White_Side_Corner_Out = new BlockRoad(Material.iron, MapColor.ironColor).setUnlocalizedName("WhiteSideCornerOut");
+		Road_White_Cross = new BlockRoad(Material.iron, MapColor.ironColor).setUnlocalizedName("WhiteCross");
+		Road_White_T = new BlockRoad(Material.iron, MapColor.ironColor).setUnlocalizedName("WhiteT");
+		Road_Crossing_White = new BlockRoad(Material.iron, MapColor.ironColor).setUnlocalizedName("Crossing");
+		Road_Yellow_Middle_Solid = new BlockRoad(Material.iron, MapColor.yellowColor).setUnlocalizedName("YellowMiddleSolid");
+		Road_Yellow_Middle_Dotted = new BlockRoad(Material.iron, MapColor.yellowColor).setUnlocalizedName("YellowMiddleDotted");
+		Road_Yellow_Side_Solid = new BlockRoad(Material.iron, MapColor.yellowColor).setUnlocalizedName("YellowSideSolid");
+		Road_Yellow_Side_Corner = new BlockRoad(Material.iron, MapColor.yellowColor).setUnlocalizedName("YellowSideCorner");
+		Road_Yellow_Side_Corner_Out = new BlockRoad(Material.iron, MapColor.yellowColor).setUnlocalizedName("YellowSideCornerOut");
+		Road_Yellow_Side_Corner_Out = new BlockRoad(Material.iron, MapColor.yellowColor).setUnlocalizedName("YellowSideCornerOut");
+		Road_Yellow_Cross = new BlockRoad(Material.iron, MapColor.yellowColor).setUnlocalizedName("YellowCross");
+		Road_Yellow_T = new BlockRoad(Material.iron, MapColor.yellowColor).setUnlocalizedName("YellowT");
+		Road_Crossing_Yellow = new BlockRoad(Material.iron, MapColor.yellowColor).setUnlocalizedName("YellowCrossing");
+		Road_Crossing_Yellow_Corner = new BlockRoad(Material.iron, MapColor.yellowColor).setUnlocalizedName("YellowCrossingCorner");
+		Road_Yellow_Passing = new BlockRoad(Material.iron, MapColor.yellowColor).setUnlocalizedName("YellowPassing");
+		Road_Yellow_X = new BlockRoad(Material.iron, MapColor.yellowColor).setUnlocalizedName("YellowX");
+		Road_Yellow_X_Side = new BlockRoad(Material.iron, MapColor.yellowColor).setUnlocalizedName("YellowXSide");
+		Road_Straight = new BlockRoad(Material.iron, MapColor.ironColor).setUnlocalizedName("Straight");
+		Road_Straight_Right = new BlockRoad(Material.iron, MapColor.ironColor).setUnlocalizedName("StraightRight");
+		Road_Straight_Left = new BlockRoad(Material.iron, MapColor.ironColor).setUnlocalizedName("StraightLeft");
+		Road_Right = new BlockRoad(Material.iron, MapColor.ironColor).setUnlocalizedName("Right");
+		Road_Left = new BlockRoad(Material.iron, MapColor.ironColor).setUnlocalizedName("Left");
 		manhole = new BlockManholeCover(Material.iron).setUnlocalizedName("manhole");
 		
 		/*Don't Remove This.*/
-		Block block5 = (new Block(Material.rock, MapColor.redColor)).setHardness(2.0F).setResistance(10.0F).setUnlocalizedName("brick").setLightOpacity(0);
+		Block block5 = (new Block(Material.rock)).setHardness(2.0F).setResistance(10.0F).setUnlocalizedName("brick").setLightOpacity(0);
         
 		
 		Road_Guard = new BlockGuardRail(block5.getDefaultState()).setUnlocalizedName("Guardrail").setLightOpacity(0);
-		Road_Guard_Corner = new BlockRoad(Material.iron).setUnlocalizedName("GuardrailCorner");
-		Road_Pothole = new BlockRoad(Material.iron).setUnlocalizedName("Pothole");
-		Road_Speedbump = new BlockRoad(Material.iron).setUnlocalizedName("SpeedBump");
-		Road_Curb = new BlockRoad(Material.iron).setUnlocalizedName("Curb");
-		Road_Curb_White = new BlockRoad(Material.iron).setUnlocalizedName("CurbWhite");
-		Road_Curb_Blue = new BlockRoad(Material.iron).setUnlocalizedName("CurbBlue");
-		Road_Curb_Red = new BlockRoad(Material.iron).setUnlocalizedName("CurbRed");
-		Road_Curb_Green = new BlockRoad(Material.iron).setUnlocalizedName("CurbGreen");
-		Road_Curb_Yellow = new BlockRoad(Material.iron).setUnlocalizedName("CurbYellow");
-		Road_Curb_Outer_Corner = new BlockRoad(Material.iron).setUnlocalizedName("CurbOuter");
-		Road_Curb_White_Outer_Corner = new BlockRoad(Material.iron).setUnlocalizedName("CurbWhiteOuter");
-		Road_Curb_Blue_Outer_Corner = new BlockRoad(Material.iron).setUnlocalizedName("CurbBlueOuter");
-		Road_Curb_Red_Outer_Corner = new BlockRoad(Material.iron).setUnlocalizedName("CurbRedOuter");
-		Road_Curb_Green_Outer_Corner = new BlockRoad(Material.iron).setUnlocalizedName("CurbGreenOuter");
-		Road_Curb_Yellow_Outer_Corner = new BlockRoad(Material.iron).setUnlocalizedName("CurbYellowOuter");
-		Road_Curb_Inner_Corner = new BlockRoad(Material.iron).setUnlocalizedName("CurbInner");
-		Road_Curb_White_Inner_Corner = new BlockRoad(Material.iron).setUnlocalizedName("CurbWhiteInner");
-		Road_Curb_Blue_Inner_Corner = new BlockRoad(Material.iron).setUnlocalizedName("CurbBlueInner");
-		Road_Curb_Red_Inner_Corner = new BlockRoad(Material.iron).setUnlocalizedName("CurbRedInner");
-		Road_Curb_Green_Inner_Corner = new BlockRoad(Material.iron).setUnlocalizedName("CurbGreenInner");
-		Road_Curb_Yellow_Inner_Corner = new BlockRoad(Material.iron).setUnlocalizedName("CurbYellowInner");
-		Road_Handicap = new BlockRoad(Material.iron).setUnlocalizedName("RoadHandicap");
-		Sidewalk = new BlockSidewalk(Material.iron).setUnlocalizedName("Sidewalk");
-		Sidewalk_Drain = new BlockSidewalk(Material.iron).setUnlocalizedName("SidewalkDrain");
+		Road_Pothole = new BlockRoad(Material.iron, MapColor.yellowColor).setUnlocalizedName("Pothole");
+		Road_Speedbump = new BlockRoad(Material.iron, MapColor.yellowColor).setUnlocalizedName("SpeedBump");
+		Road_Curb = new BlockRoad(Material.iron, MapColor.grayColor).setUnlocalizedName("Curb");
+		Road_Curb_White = new BlockRoad(Material.iron, MapColor.ironColor).setUnlocalizedName("CurbWhite");
+		Road_Curb_Blue = new BlockRoad(Material.iron, MapColor.yellowColor).setUnlocalizedName("CurbBlue");
+		Road_Curb_Red = new BlockRoad(Material.iron, MapColor.yellowColor).setUnlocalizedName("CurbRed");
+		Road_Curb_Green = new BlockRoad(Material.iron, MapColor.yellowColor).setUnlocalizedName("CurbGreen");
+		Road_Curb_Yellow = new BlockRoad(Material.iron, MapColor.yellowColor).setUnlocalizedName("CurbYellow");
+		Road_Curb_Outer_Corner = new BlockRoad(Material.iron, MapColor.yellowColor).setUnlocalizedName("CurbOuter");
+		Road_Curb_White_Outer_Corner = new BlockRoad(Material.iron, MapColor.ironColor).setUnlocalizedName("CurbWhiteOuter");
+		Road_Curb_Blue_Outer_Corner = new BlockRoad(Material.iron, MapColor.blueColor).setUnlocalizedName("CurbBlueOuter");
+		Road_Curb_Red_Outer_Corner = new BlockRoad(Material.iron, MapColor.redColor).setUnlocalizedName("CurbRedOuter");
+		Road_Curb_Green_Outer_Corner = new BlockRoad(Material.iron, MapColor.greenColor).setUnlocalizedName("CurbGreenOuter");
+		Road_Curb_Yellow_Outer_Corner = new BlockRoad(Material.iron, MapColor.yellowColor).setUnlocalizedName("CurbYellowOuter");
+		Road_Curb_Inner_Corner = new BlockRoad(Material.iron, MapColor.grayColor).setUnlocalizedName("CurbInner");
+		Road_Curb_White_Inner_Corner = new BlockRoad(Material.iron, MapColor.ironColor).setUnlocalizedName("CurbWhiteInner");
+		Road_Curb_Blue_Inner_Corner = new BlockRoad(Material.iron, MapColor.blueColor).setUnlocalizedName("CurbBlueInner");
+		Road_Curb_Red_Inner_Corner = new BlockRoad(Material.iron, MapColor.redColor).setUnlocalizedName("CurbRedInner");
+		Road_Curb_Green_Inner_Corner = new BlockRoad(Material.iron, MapColor.greenColor).setUnlocalizedName("CurbGreenInner");
+		Road_Curb_Yellow_Inner_Corner = new BlockRoad(Material.iron, MapColor.yellowColor).setUnlocalizedName("CurbYellowInner");
+		Road_Handicap = new BlockRoad(Material.iron, MapColor.yellowColor).setUnlocalizedName("RoadHandicap");
+		Sidewalk = new BlockSidewalk(Material.iron, MapColor.grayColor).setUnlocalizedName("Sidewalk");
+		Sidewalk_Drain = new BlockSidewalk(Material.iron, MapColor.grayColor).setUnlocalizedName("SidewalkDrain");
 		Traffic_Light = new BlockTrafficLight(Material.iron).setUnlocalizedName("TrafficLight");
 		Traffic_Light_Pole = new BlockPole().setUnlocalizedName("TrafficLightPole").setLightOpacity(0);
-		Traffic_Light_Pole_Side = new BlockTrafficLightPole(Material.iron).setUnlocalizedName("TrafficLightPoleSide");
-		Traffic_Light_Pole_Corner = new BlockTrafficLightPole(Material.iron).setUnlocalizedName("TrafficLightPoleCorner");
 		Street_Light = new BlockTrafficLight(Material.iron).setLightLevel(1.0F).setUnlocalizedName("StreetLight");
-		Pylon_Stick = new BlockRoad(Material.iron).setUnlocalizedName("PylonStick");
-		Pylon_Triangle = new BlockRoad(Material.iron).setUnlocalizedName("PylonTriangle");
-		Pylon_Large = new BlockRoad(Material.iron).setUnlocalizedName("PylonLarge");
+		Pylon_Stick = new BlockRoadSign(Material.iron).setUnlocalizedName("PylonStick");
+		Pylon_Triangle = new BlockRoadSign(Material.iron).setUnlocalizedName("PylonTriangle");
+		Pylon_Large = new BlockRoadSign(Material.iron).setUnlocalizedName("PylonLarge");
 		Sign_Stop = new BlockRoadSign(Material.iron).setUnlocalizedName("StopSign");
 		Sign_Speed_KM_100 = new BlockRoadSign(Material.iron).setUnlocalizedName("Speed100");
 		Sign_Speed_KM_50 = new BlockRoadSign(Material.iron).setUnlocalizedName("Speed50");
@@ -154,6 +151,11 @@ public class RoadBlocks
 		Fire_Hydrant = new BlockFireHydrant(Material.iron).setUnlocalizedName("FireHydrant");
 		Parking_Meter = new BlockRoadSign(Material.iron).setUnlocalizedName("ParkingMeter");
 		RailRoad_Crossing_Sign = new BlockRoadSign(Material.iron).setUnlocalizedName("RailRoadCrossingSign");
+		
+		/*Full Road Blocks*/
+		Road_Full = new BlockRoadFull(Material.rock, MapColor.blackColor).setUnlocalizedName("RoadFull");
+		//RoadSlab = new BlockRoadSlab(Material.iron, MapColor.blackColor).setUnlocalizedName("RoadSlab");
+		
 		
 	}
 	public static void register()
@@ -187,7 +189,6 @@ public class RoadBlocks
 		GameRegistry.registerBlock(Road_Handicap, Road_Handicap.getUnlocalizedName().substring(5)).setHardness(1.5F).setResistance(10.0F).setCreativeTab(RoadMod.AsphaultTab);
 		GameRegistry.registerBlock(manhole, manhole.getUnlocalizedName().substring(5)).setHardness(1.5F).setResistance(10.0F).setCreativeTab(RoadMod.AsphaultTab);
 		GameRegistry.registerBlock(Road_Guard, Road_Guard.getUnlocalizedName().substring(5)).setHardness(1.5F).setResistance(10.0F).setCreativeTab(RoadMod.MiscTab);
-		GameRegistry.registerBlock(Road_Guard_Corner, Road_Guard_Corner.getUnlocalizedName().substring(5)).setHardness(1.5F).setResistance(10.0F).setCreativeTab(RoadMod.MiscTab);
 		GameRegistry.registerBlock(Road_Pothole, Road_Pothole.getUnlocalizedName().substring(5)).setHardness(1.5F).setResistance(10.0F).setCreativeTab(RoadMod.AsphaultTab);
 		GameRegistry.registerBlock(Road_Speedbump, Road_Speedbump.getUnlocalizedName().substring(5)).setHardness(1.5F).setResistance(10.0F).setCreativeTab(RoadMod.AsphaultTab);
 		GameRegistry.registerBlock(Road_Curb, Road_Curb.getUnlocalizedName().substring(5)).setHardness(1.5F).setResistance(10.0F).setCreativeTab(RoadMod.AsphaultTab);
@@ -212,8 +213,6 @@ public class RoadBlocks
 		GameRegistry.registerBlock(Sidewalk_Drain, Sidewalk_Drain.getUnlocalizedName().substring(5)).setHardness(1.5F).setResistance(10.0F).setCreativeTab(RoadMod.MiscTab);
 		GameRegistry.registerBlock(Traffic_Light, Traffic_Light.getUnlocalizedName().substring(5)).setHardness(1.5F).setResistance(10.0F).setCreativeTab(RoadMod.MiscTab);
 		GameRegistry.registerBlock(Traffic_Light_Pole, Traffic_Light_Pole.getUnlocalizedName().substring(5)).setHardness(1.5F).setResistance(10.0F).setCreativeTab(RoadMod.MiscTab);
-		GameRegistry.registerBlock(Traffic_Light_Pole_Side, Traffic_Light_Pole_Side.getUnlocalizedName().substring(5)).setHardness(1.5F).setResistance(10.0F).setCreativeTab(RoadMod.MiscTab);
-		GameRegistry.registerBlock(Traffic_Light_Pole_Corner, Traffic_Light_Pole_Corner.getUnlocalizedName().substring(5)).setHardness(1.5F).setResistance(10.0F).setCreativeTab(RoadMod.MiscTab);
 		GameRegistry.registerBlock(Street_Light, Street_Light.getUnlocalizedName().substring(5)).setHardness(1.5F).setResistance(10.0F).setCreativeTab(RoadMod.MiscTab);
 		GameRegistry.registerBlock(Pylon_Stick, Pylon_Stick.getUnlocalizedName().substring(5)).setHardness(1.5F).setResistance(10.0F).setCreativeTab(RoadMod.MiscTab);
 		GameRegistry.registerBlock(Pylon_Triangle, Pylon_Triangle.getUnlocalizedName().substring(5)).setHardness(1.5F).setResistance(10.0F).setCreativeTab(RoadMod.MiscTab);
@@ -248,7 +247,11 @@ public class RoadBlocks
 		GameRegistry.registerBlock(Fire_Hydrant, Fire_Hydrant.getUnlocalizedName().substring(5)).setHardness(1.5F).setResistance(10.0F).setCreativeTab(RoadMod.MiscTab);
 		GameRegistry.registerBlock(Parking_Meter, Parking_Meter.getUnlocalizedName().substring(5)).setHardness(1.5F).setResistance(10.0F).setCreativeTab(RoadMod.MiscTab);
 		GameRegistry.registerBlock(RailRoad_Crossing_Sign, RailRoad_Crossing_Sign.getUnlocalizedName().substring(5)).setHardness(1.5F).setResistance(10.0F).setCreativeTab(RoadMod.SignTab);
-			
+		
+		/*Full Road Blocks*/
+		GameRegistry.registerBlock(Road_Full, Road_Full.getUnlocalizedName().substring(5)).setHardness(1.5F).setResistance(10.0F).setCreativeTab(RoadMod.AsphaultTab);
+		//GameRegistry.registerBlock(RoadSlab, RoadSlab.getUnlocalizedName().substring(5)).setHardness(1.5F).setResistance(10.0F).setCreativeTab(RoadMod.AsphaultTab);
+		
 	}
 
 	
@@ -283,7 +286,6 @@ public class RoadBlocks
 		RegisterRender(Road_Handicap);
 		RegisterRender(manhole);
 		RegisterRender(Road_Guard);
-		RegisterRender(Road_Guard_Corner);
 		RegisterRender(Road_Pothole);
 		RegisterRender(Road_Speedbump);
 		RegisterRender(Road_Curb);
@@ -308,8 +310,6 @@ public class RoadBlocks
 		RegisterRender(Sidewalk_Drain);	
 		RegisterRender(Traffic_Light);	
 		RegisterRender(Traffic_Light_Pole);	
-		RegisterRender(Traffic_Light_Pole_Side);	
-		RegisterRender(Traffic_Light_Pole_Corner);	
 		RegisterRender(Street_Light);	
 		RegisterRender(Pylon_Stick);	
 		RegisterRender(Pylon_Triangle);	
@@ -344,6 +344,8 @@ public class RoadBlocks
 		RegisterRender(Fire_Hydrant);
 		RegisterRender(Parking_Meter);
 		RegisterRender(RailRoad_Crossing_Sign);
+		RegisterRender(Road_Full);
+		//RegisterRender(RoadSlab);
 	}
 	
 	public static void RegisterRender(Block block)
