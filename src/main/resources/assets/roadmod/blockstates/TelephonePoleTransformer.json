@@ -1,0 +1,9 @@
+{
+    "variants": {
+        "normal": { "model": "roadmod:TelephonePoleTransformer" },
+        "facing=north": { "model": "roadmod:TelephonePoleTransformer" },
+        "facing=south": { "model": "roadmod:TelephonePoleTransformer", "y": 180 },
+        "facing=west":  { "model": "roadmod:TelephonePoleTransformer", "y": 270 },
+        "facing=east":  { "model": "roadmod:TelephonePoleTransformer", "y": 90 }
+    }
+}

@@ -1,5 +1,7 @@
 package com.roadmod.blocks;
 
+import java.util.Iterator;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockSlab;
 import net.minecraft.block.BlockStairs;
@@ -32,13 +34,15 @@ public class BlockManholeCover extends Block
     public static final PropertyDirection FACING = PropertyDirection.create("facing", EnumFacing.Plane.HORIZONTAL);
     public static final PropertyBool OPEN = PropertyBool.create("open");
     public static final PropertyEnum<BlockManholeCover.DoorHalf> HALF = PropertyEnum.<BlockManholeCover.DoorHalf>create("half", BlockManholeCover.DoorHalf.class);
-
+    
+   
     protected BlockManholeCover(Material materialIn)
     {
         super(materialIn);
         this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH).withProperty(OPEN, Boolean.valueOf(false)).withProperty(HALF, BlockManholeCover.DoorHalf.BOTTOM));
         float f = 0.5F;
         float f1 = 1.0F;
+        this.useNeighborBrightness = true;
     }
 
     public boolean isOpaqueCube()

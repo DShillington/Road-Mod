@@ -1,0 +1,9 @@
+{
+    "variants": {
+        "normal": { "model": "roadmod:TelephonePoleCrossbar" },
+        "facing=north": { "model": "roadmod:TelephonePoleCrossbar" },
+        "facing=south": { "model": "roadmod:TelephonePoleCrossbar", "y": 180 },
+        "facing=west":  { "model": "roadmod:TelephonePoleCrossbar", "y": 270 },
+        "facing=east":  { "model": "roadmod:TelephonePoleCrossbar", "y": 90 }
+    }
+}

@@ -53,7 +53,8 @@ public class RoadBlocks
 	Sign_Merge_Left, Sign_Merge_Right, Sign_StopSign_Ahead, Sign_Road_Block, RailRoad_Crossing_Sign,
 	Sign_Speed;
 	//Misc
-	public static Block Fire_Hydrant, Parking_Meter;
+	public static Block Fire_Hydrant, Parking_Meter, Telephone_Pole, Telephone_Pole_Crossbar,
+	Telephone_Pole_Cable, Telephone_Pole_Transformer;
 	
 	public static void init()
 	{
@@ -84,12 +85,9 @@ public class RoadBlocks
 		Road_Straight_Left = new BlockRoad(Material.iron).setUnlocalizedName("StraightLeft");
 		Road_Right = new BlockRoad(Material.iron).setUnlocalizedName("Right");
 		Road_Left = new BlockRoad(Material.iron).setUnlocalizedName("Left");
-		manhole = new BlockManholeCover(Material.iron).setUnlocalizedName("manhole").setLightOpacity(0);
-		
+		manhole = new BlockManholeCover(Material.iron).setUnlocalizedName("manhole").setLightOpacity(0);	
 		/*Don't Remove This.*/
 		Block block5 = (new Block(Material.rock, MapColor.redColor)).setHardness(2.0F).setResistance(10.0F).setUnlocalizedName("brick").setLightOpacity(0);
-        
-		
 		Road_Guard = new BlockGuardRail(block5.getDefaultState()).setUnlocalizedName("Guardrail").setLightOpacity(0);
 		Road_Guard_Corner = new BlockRoad(Material.iron).setUnlocalizedName("GuardrailCorner");
 		Road_Pothole = new BlockRoad(Material.iron).setUnlocalizedName("Pothole");
@@ -149,11 +147,15 @@ public class RoadBlocks
 		Sign_Merge_Right = new BlockRoadSign(Material.iron).setUnlocalizedName("MergeRight");
 		Sign_StopSign_Ahead = new BlockRoadSign(Material.iron).setUnlocalizedName("StopSignAhead");
 		Sign_Road_Block = new BlockRoadSign(Material.iron).setUnlocalizedName("RoadBlockSign");
-		Sign_Speed = new BlockSpeedSign(Material.iron).setUnlocalizedName("SignSpeed");
-		
+		Sign_Speed = new BlockSpeedSign().setUnlocalizedName("SignSpeed");
+		RailRoad_Crossing_Sign = new BlockRoadSign(Material.iron).setUnlocalizedName("RailRoadCrossingSign");
 		Fire_Hydrant = new BlockFireHydrant(Material.iron).setUnlocalizedName("FireHydrant");
 		Parking_Meter = new BlockRoadSign(Material.iron).setUnlocalizedName("ParkingMeter");
-		RailRoad_Crossing_Sign = new BlockRoadSign(Material.iron).setUnlocalizedName("RailRoadCrossingSign");
+		Telephone_Pole = new BlockTelephonePole(Material.iron).setUnlocalizedName("TelephonePoleBase");
+		Telephone_Pole_Crossbar = new BlockTelephonePole(Material.iron).setUnlocalizedName("TelephonePoleCrossbar");
+		Telephone_Pole_Cable = new BlockTelephonePole(Material.iron).setUnlocalizedName("TelephonePoleCable");
+		Telephone_Pole_Transformer = new BlockTelephonePole(Material.iron).setUnlocalizedName("TelephonePoleTransformer");
+		
 		
 	}
 	public static void register()
@@ -248,7 +250,11 @@ public class RoadBlocks
 		GameRegistry.registerBlock(Fire_Hydrant, Fire_Hydrant.getUnlocalizedName().substring(5)).setHardness(1.5F).setResistance(10.0F).setCreativeTab(RoadMod.MiscTab);
 		GameRegistry.registerBlock(Parking_Meter, Parking_Meter.getUnlocalizedName().substring(5)).setHardness(1.5F).setResistance(10.0F).setCreativeTab(RoadMod.MiscTab);
 		GameRegistry.registerBlock(RailRoad_Crossing_Sign, RailRoad_Crossing_Sign.getUnlocalizedName().substring(5)).setHardness(1.5F).setResistance(10.0F).setCreativeTab(RoadMod.SignTab);
-			
+		GameRegistry.registerBlock(Telephone_Pole, Telephone_Pole.getUnlocalizedName().substring(5)).setHardness(1.5F).setResistance(10.0F).setCreativeTab(RoadMod.MiscTab);
+		GameRegistry.registerBlock(Telephone_Pole_Crossbar, Telephone_Pole_Crossbar.getUnlocalizedName().substring(5)).setHardness(1.5F).setResistance(10.0F).setCreativeTab(RoadMod.MiscTab);
+		GameRegistry.registerBlock(Telephone_Pole_Cable, Telephone_Pole_Cable.getUnlocalizedName().substring(5)).setHardness(1.5F).setResistance(10.0F).setCreativeTab(RoadMod.MiscTab);
+		GameRegistry.registerBlock(Telephone_Pole_Transformer, Telephone_Pole_Transformer.getUnlocalizedName().substring(5)).setHardness(1.5F).setResistance(10.0F).setCreativeTab(RoadMod.MiscTab);
+		
 	}
 
 	
@@ -344,6 +350,11 @@ public class RoadBlocks
 		RegisterRender(Fire_Hydrant);
 		RegisterRender(Parking_Meter);
 		RegisterRender(RailRoad_Crossing_Sign);
+		RegisterRender(Telephone_Pole);
+		RegisterRender(Telephone_Pole_Crossbar);
+		RegisterRender(Telephone_Pole_Cable);
+		RegisterRender(Telephone_Pole_Transformer);
+
 	}
 	
 	public static void RegisterRender(Block block)
