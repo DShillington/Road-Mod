@@ -55,18 +55,8 @@ public class RoadMod
     	RoadItems.init();
     	RoadItems.register();
     	isCarsAndDrivesLoaded = Loader.isModLoaded("carsanddrives");
-    	
-    	
-    	//B3DLoader.instance.addDomain(Reference.MOD_ID.toLowerCase());
-       // Item item = Item.getItemFromBlock(BlockSlope.instance);
-        //ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(Reference.MOD_ID.toLowerCase() + ":" + BlockSlope.name, "inventory"));
-      
+   
     }
-    
-	private String ModelResourceLocation(String string) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	@EventHandler
 	public void Init(FMLInitializationEvent event)

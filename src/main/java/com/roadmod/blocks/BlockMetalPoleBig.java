@@ -30,10 +30,10 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class BlockTrafficLightPole extends Block
+public class BlockMetalPoleBig extends Block
 {
 	
-	 public BlockTrafficLightPole(Material materialIn) {
+	 public BlockMetalPoleBig(Material materialIn) {
 		super(Material.iron);
 		this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.SOUTH));
 	}
@@ -61,7 +61,7 @@ public class BlockTrafficLightPole extends Block
 	}
 	public Item getItemDropped(IBlockState state, Random rand, int fortune)
     {
-        return Item.getItemFromBlock(RoadBlocks.Traffic_Light_Pole);
+        return Item.getItemFromBlock(RoadBlocks.Metal_Pole_Big);
     }
 	 
     public void onBlockAdded(World worldIn, BlockPos pos, IBlockState state)

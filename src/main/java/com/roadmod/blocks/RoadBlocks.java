@@ -41,7 +41,7 @@ public class RoadBlocks
 	//Pathways
 	public static Block Sidewalk, Sidewalk_Drain;
 	//Light Pole Stuff
-	public static Block Traffic_Light, Traffic_Light_Pole,
+	public static Block Traffic_Light, Metal_Pole_Big, Metal_Pole_Small,
 	Street_Light, Sign_Crossing;
 	//Pylons
 	public static Block Pylon_Stick, Pylon_Triangle, Pylon_Large;
@@ -121,7 +121,8 @@ public class RoadBlocks
 		Sidewalk = new BlockSidewalk(Material.iron, MapColor.grayColor).setUnlocalizedName("Sidewalk");
 		Sidewalk_Drain = new BlockSidewalk(Material.iron, MapColor.grayColor).setUnlocalizedName("SidewalkDrain");
 		Traffic_Light = new BlockTrafficLight(Material.iron).setUnlocalizedName("TrafficLight");
-		Traffic_Light_Pole = new BlockPole().setUnlocalizedName("TrafficLightPole").setLightOpacity(0);
+		Metal_Pole_Big = new BlockPole().setUnlocalizedName("MetalPoleBig").setLightOpacity(0);
+		Metal_Pole_Small = new BlockPole().setUnlocalizedName("MetalPoleSmall").setLightOpacity(0);
 		Street_Light = new BlockTrafficLight(Material.iron).setLightLevel(1.0F).setUnlocalizedName("StreetLight");
 		Pylon_Stick = new BlockRoadSign(Material.iron).setUnlocalizedName("PylonStick");
 		Pylon_Triangle = new BlockRoadSign(Material.iron).setUnlocalizedName("PylonTriangle");
@@ -195,7 +196,7 @@ public class RoadBlocks
 		GameRegistry.registerBlock(Road_Right, Road_Right.getUnlocalizedName().substring(5)).setHardness(1.5F).setResistance(10.0F).setCreativeTab(RoadMod.AsphaultTab);
 		GameRegistry.registerBlock(Road_Left, Road_Left.getUnlocalizedName().substring(5)).setHardness(1.5F).setResistance(10.0F).setCreativeTab(RoadMod.AsphaultTab);
 		GameRegistry.registerBlock(Road_Handicap, Road_Handicap.getUnlocalizedName().substring(5)).setHardness(1.5F).setResistance(10.0F).setCreativeTab(RoadMod.AsphaultTab);
-		GameRegistry.registerBlock(manhole, manhole.getUnlocalizedName().substring(5)).setHardness(1.5F).setResistance(10.0F).setCreativeTab(RoadMod.AsphaultTab);
+		GameRegistry.registerBlock(manhole, manhole.getUnlocalizedName().substring(5)).setHardness(1.5F).setResistance(10.0F).setCreativeTab(RoadMod.MiscTab);
 		GameRegistry.registerBlock(Road_Guard, Road_Guard.getUnlocalizedName().substring(5)).setHardness(1.5F).setResistance(10.0F).setCreativeTab(RoadMod.MiscTab);
 		GameRegistry.registerBlock(Road_Pothole, Road_Pothole.getUnlocalizedName().substring(5)).setHardness(1.5F).setResistance(10.0F).setCreativeTab(RoadMod.AsphaultTab);
 		GameRegistry.registerBlock(Road_Speedbump, Road_Speedbump.getUnlocalizedName().substring(5)).setHardness(1.5F).setResistance(10.0F).setCreativeTab(RoadMod.AsphaultTab);
@@ -220,7 +221,8 @@ public class RoadBlocks
 		GameRegistry.registerBlock(Sidewalk, Sidewalk.getUnlocalizedName().substring(5)).setHardness(1.5F).setResistance(10.0F).setCreativeTab(RoadMod.MiscTab);
 		GameRegistry.registerBlock(Sidewalk_Drain, Sidewalk_Drain.getUnlocalizedName().substring(5)).setHardness(1.5F).setResistance(10.0F).setCreativeTab(RoadMod.MiscTab);
 		GameRegistry.registerBlock(Traffic_Light, Traffic_Light.getUnlocalizedName().substring(5)).setHardness(1.5F).setResistance(10.0F).setCreativeTab(RoadMod.MiscTab);
-		GameRegistry.registerBlock(Traffic_Light_Pole, Traffic_Light_Pole.getUnlocalizedName().substring(5)).setHardness(1.5F).setResistance(10.0F).setCreativeTab(RoadMod.MiscTab);
+		GameRegistry.registerBlock(Metal_Pole_Big, Metal_Pole_Big.getUnlocalizedName().substring(5)).setHardness(1.5F).setResistance(10.0F).setCreativeTab(RoadMod.MiscTab);
+		GameRegistry.registerBlock(Metal_Pole_Small, Metal_Pole_Small.getUnlocalizedName().substring(5)).setHardness(1.5F).setResistance(10.0F).setCreativeTab(RoadMod.MiscTab);
 		GameRegistry.registerBlock(Street_Light, Street_Light.getUnlocalizedName().substring(5)).setHardness(1.5F).setResistance(10.0F).setCreativeTab(RoadMod.MiscTab);
 		GameRegistry.registerBlock(Pylon_Stick, Pylon_Stick.getUnlocalizedName().substring(5)).setHardness(1.5F).setResistance(10.0F).setCreativeTab(RoadMod.MiscTab);
 		GameRegistry.registerBlock(Pylon_Triangle, Pylon_Triangle.getUnlocalizedName().substring(5)).setHardness(1.5F).setResistance(10.0F).setCreativeTab(RoadMod.MiscTab);
@@ -319,7 +321,8 @@ public class RoadBlocks
 		RegisterRender(Sidewalk);	
 		RegisterRender(Sidewalk_Drain);	
 		RegisterRender(Traffic_Light);	
-		RegisterRender(Traffic_Light_Pole);	
+		RegisterRender(Metal_Pole_Big);	
+		RegisterRender(Metal_Pole_Small);	
 		RegisterRender(Street_Light);	
 		RegisterRender(Pylon_Stick);	
 		RegisterRender(Pylon_Triangle);	
