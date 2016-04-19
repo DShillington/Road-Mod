@@ -1,6 +1,5 @@
 package com.roadmod;
 
-import com.roadmod.blocks.BlockSlope;
 import com.roadmod.blocks.RoadBlocks;
 import com.roadmod.items.RoadItems;
 import com.roadmod.proxy.CommonProxy;

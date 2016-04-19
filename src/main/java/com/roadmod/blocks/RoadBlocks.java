@@ -61,7 +61,7 @@ public class RoadBlocks
 	public static void init()
 	{
 		
-		Slope = new BlockRoad(Material.iron, MapColor.blackColor).setUnlocalizedName("Slope");
+		Slope = new BlockRoad(Material.rock, MapColor.blackColor).setUnlocalizedName("Slope").setLightOpacity(0);
 
 		Road = new BlockRoad(Material.iron, MapColor.blackColor).setUnlocalizedName("Road");
 		Road_White_Middle_Solid = new BlockRoadWhite(Material.iron, MapColor.ironColor).setUnlocalizedName("WhiteMiddleSolid");

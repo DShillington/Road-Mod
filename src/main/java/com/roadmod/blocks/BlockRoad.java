@@ -38,6 +38,7 @@ public class BlockRoad extends Block
 		super(Material.iron);
 		this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.SOUTH));
 		this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.812F, 1.0F);
+		this.useNeighborBrightness = true;
 	 }
 	 
 	public static final PropertyDirection FACING = PropertyDirection.create("facing", EnumFacing.Plane.HORIZONTAL);
@@ -51,10 +52,12 @@ public class BlockRoad extends Block
 	public boolean isFullCube() {
 		return true;
 	}
-	
+	public boolean renderAsNormalBlock() {
+        return false;
+}
 	@Override
 	public EnumWorldBlockLayer getBlockLayer() {
-		return EnumWorldBlockLayer.SOLID;
+		return EnumWorldBlockLayer.CUTOUT_MIPPED;
 	}
 	public Item getItemDropped(IBlockState state, Random rand, int fortune)
     {

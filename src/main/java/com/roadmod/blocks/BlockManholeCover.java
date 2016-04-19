@@ -49,7 +49,9 @@ public class BlockManholeCover extends Block
     {
         return false;
     }
-
+    public boolean renderAsNormalBlock() {
+        return false;
+}
     public boolean isFullCube()
     {
         return false;

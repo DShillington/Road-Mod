@@ -2,7 +2,6 @@ package com.roadmod.proxy;
 
 import java.util.logging.Level;
 
-import com.roadmod.blocks.BlockSlope;
 import com.roadmod.util.Reference;
 
 import net.minecraft.block.Block;
