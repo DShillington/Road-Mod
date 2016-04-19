@@ -1,0 +1,8 @@
+{
+    "variants": {
+        "facing=north": { "model": "roadmod:slope.b3d" },
+        "facing=south": { "model": "roadmod:slope.b3d", "y": 180 },
+        "facing=west":  { "model": "roadmod:slope.b3d", "y": 270 },
+        "facing=east":  { "model": "roadmod:slope.b3d", "y": 90 }
+    }
+}

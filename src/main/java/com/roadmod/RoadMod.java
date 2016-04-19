@@ -1,5 +1,6 @@
 package com.roadmod;
 
+import com.roadmod.blocks.BlockSlope;
 import com.roadmod.blocks.RoadBlocks;
 import com.roadmod.items.RoadItems;
 import com.roadmod.proxy.CommonProxy;
@@ -8,11 +9,15 @@ import com.roadmod.tabs.SignTab;
 import com.roadmod.tabs.MiscTab;
 import com.roadmod.util.Reference;
 
+import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.client.model.ModelLoader;
+import net.minecraftforge.client.model.b3d.B3DLoader;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
@@ -51,8 +56,19 @@ public class RoadMod
     	RoadItems.init();
     	RoadItems.register();
     	isCarsAndDrivesLoaded = Loader.isModLoaded("carsanddrives");
-	}
+    	
+    	
+    	//B3DLoader.instance.addDomain(Reference.MOD_ID.toLowerCase());
+       // Item item = Item.getItemFromBlock(BlockSlope.instance);
+        //ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(Reference.MOD_ID.toLowerCase() + ":" + BlockSlope.name, "inventory"));
+      
+    }
     
+	private String ModelResourceLocation(String string) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 	@EventHandler
 	public void Init(FMLInitializationEvent event)
 	{	

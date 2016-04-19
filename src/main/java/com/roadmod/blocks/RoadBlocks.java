@@ -56,8 +56,14 @@ public class RoadBlocks
 	public static Block Fire_Hydrant, Parking_Meter, Telephone_Pole, Telephone_Pole_Crossbar,
 	Telephone_Pole_Cable, Telephone_Pole_Transformer;
 	
+	//TESTING
+	public static Block Slope;
+	
 	public static void init()
 	{
+		
+		Slope = new BlockRoad(Material.iron).setUnlocalizedName("Slope");
+		
 		Road = new BlockRoad(Material.iron).setUnlocalizedName("Road");
 		Road_White_Middle_Solid = new BlockRoad(Material.iron).setUnlocalizedName("WhiteMiddleSolid");
 		Road_White_Middle_Dotted = new BlockRoad(Material.iron).setUnlocalizedName("WhiteMiddleDotted");
@@ -160,6 +166,8 @@ public class RoadBlocks
 	}
 	public static void register()
 	{
+		GameRegistry.registerBlock(Slope, Slope.getUnlocalizedName().substring(5)).setHardness(1.5F).setResistance(10.0F).setCreativeTab(RoadMod.AsphaultTab);
+		
 		GameRegistry.registerBlock(Road, Road.getUnlocalizedName().substring(5)).setHardness(1.5F).setResistance(10.0F).setCreativeTab(RoadMod.AsphaultTab);
 		GameRegistry.registerBlock(Road_White_Middle_Solid, Road_White_Middle_Solid.getUnlocalizedName().substring(5)).setHardness(1.5F).setResistance(10.0F).setCreativeTab(RoadMod.AsphaultTab);
 		GameRegistry.registerBlock(Road_White_Middle_Dotted, Road_White_Middle_Dotted.getUnlocalizedName().substring(5)).setHardness(1.5F).setResistance(10.0F).setCreativeTab(RoadMod.AsphaultTab);
@@ -260,6 +268,8 @@ public class RoadBlocks
 	
 	public static void registerRenders()
 	{
+		RegisterRender(Slope);
+		
 		RegisterRender(Road);	
 		RegisterRender(Road_White_Middle_Solid);	
 		RegisterRender(Road_White_Middle_Dotted);	

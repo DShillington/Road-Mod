@@ -2,14 +2,20 @@ package com.roadmod.proxy;
 
 import java.util.logging.Level;
 
+import com.roadmod.blocks.BlockSlope;
+import com.roadmod.util.Reference;
+
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.renderer.entity.RenderItem;
 import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.World;
+import net.minecraftforge.client.model.ModelLoader;
+import net.minecraftforge.client.model.b3d.B3DLoader;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.Loader;
@@ -29,6 +35,7 @@ public void register(){
 
 	
 	public static void preInitCommon(){
+		
 			}
 	
 	 public void registerNetworkStuff(){
