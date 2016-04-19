@@ -31,13 +31,13 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class BlockRoad extends Block
+public class BlockRoadSlab extends Block
 {
 	
-	 public BlockRoad(Material materialIn, MapColor blackcolor) {
+	 public BlockRoadSlab(Material materialIn, MapColor blackcolor) {
 		super(Material.iron);
 		this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.SOUTH));
-		this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.812F, 1.0F);
+		this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.5F, 1.0F);
 	 }
 	 
 	public static final PropertyDirection FACING = PropertyDirection.create("facing", EnumFacing.Plane.HORIZONTAL);

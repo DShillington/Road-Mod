@@ -2,6 +2,8 @@ itemGroup.tabRoadAsphault=Road Mod Asphault
 itemGroup.tabRoadMisc=Road Mod Miscellaneous
 itemGroup.tabRoadSign=Road Mod Signs
 
+tile.RoadSlab.name= Asphalt Slab
+tile.RoadFull.name= Asphalt
 tile.Road.name= Asphalt
 tile.WhiteMiddleSolid.name= Painted Asphalt
 tile.WhiteMiddleDotted.name= Painted Asphalt
