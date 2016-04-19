@@ -5,7 +5,6 @@ import java.util.Random;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockGlass;
 import net.minecraft.block.BlockWorkbench;
-import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyBool;
@@ -31,13 +30,13 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class BlockRoadSlab extends Block
+public class BlockTelephonePole extends Block
 {
 	
-	 public BlockRoadSlab(Material materialIn, MapColor blackcolor) {
+	 public BlockTelephonePole(Material materialIn) {
 		super(Material.iron);
 		this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.SOUTH));
-		this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.5F, 1.0F);
+		this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.812F, 1.0F);
 	 }
 	 
 	public static final PropertyDirection FACING = PropertyDirection.create("facing", EnumFacing.Plane.HORIZONTAL);

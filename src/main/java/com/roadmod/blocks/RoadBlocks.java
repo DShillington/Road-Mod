@@ -146,7 +146,7 @@ public class RoadBlocks
 		Sign_Merge_Right = new BlockRoadSign(Material.iron).setUnlocalizedName("MergeRight");
 		Sign_StopSign_Ahead = new BlockRoadSign(Material.iron).setUnlocalizedName("StopSignAhead");
 		Sign_Road_Block = new BlockRoadSign(Material.iron).setUnlocalizedName("RoadBlockSign");
-		Sign_Speed = new BlockSpeedSign(Material.iron).setUnlocalizedName("SignSpeed");
+		Sign_Speed = new BlockSpeedSign().setUnlocalizedName("SignSpeed");
 		
 		Fire_Hydrant = new BlockFireHydrant(Material.iron).setUnlocalizedName("FireHydrant");
 		Parking_Meter = new BlockRoadSign(Material.iron).setUnlocalizedName("ParkingMeter");
