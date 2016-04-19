@@ -64,14 +64,14 @@ public class RoadBlocks
 		Slope = new BlockRoad(Material.iron, MapColor.blackColor).setUnlocalizedName("Slope");
 
 		Road = new BlockRoad(Material.iron, MapColor.blackColor).setUnlocalizedName("Road");
-		Road_White_Middle_Solid = new BlockRoad(Material.iron, MapColor.ironColor).setUnlocalizedName("WhiteMiddleSolid");
-		Road_White_Middle_Dotted = new BlockRoad(Material.iron, MapColor.ironColor).setUnlocalizedName("WhiteMiddleDotted");
-		Road_White_Side_Solid = new BlockRoad(Material.iron, MapColor.ironColor).setUnlocalizedName("WhiteSideSolid");
-		Road_White_Side_Corner = new BlockRoad(Material.iron, MapColor.ironColor).setUnlocalizedName("WhiteSideCorner");
-		Road_White_Side_Corner_Out = new BlockRoad(Material.iron, MapColor.ironColor).setUnlocalizedName("WhiteSideCornerOut");
-		Road_White_Cross = new BlockRoad(Material.iron, MapColor.ironColor).setUnlocalizedName("WhiteCross");
-		Road_White_T = new BlockRoad(Material.iron, MapColor.ironColor).setUnlocalizedName("WhiteT");
-		Road_Crossing_White = new BlockRoad(Material.iron, MapColor.ironColor).setUnlocalizedName("Crossing");
+		Road_White_Middle_Solid = new BlockRoadWhite(Material.iron, MapColor.ironColor).setUnlocalizedName("WhiteMiddleSolid");
+		Road_White_Middle_Dotted = new BlockRoadWhite(Material.iron, MapColor.ironColor).setUnlocalizedName("WhiteMiddleDotted");
+		Road_White_Side_Solid = new BlockRoadWhite(Material.iron, MapColor.ironColor).setUnlocalizedName("WhiteSideSolid");
+		Road_White_Side_Corner = new BlockRoadWhite(Material.iron, MapColor.ironColor).setUnlocalizedName("WhiteSideCorner");
+		Road_White_Side_Corner_Out = new BlockRoadWhite(Material.iron, MapColor.ironColor).setUnlocalizedName("WhiteSideCornerOut");
+		Road_White_Cross = new BlockRoadWhite(Material.iron, MapColor.ironColor).setUnlocalizedName("WhiteCross");
+		Road_White_T = new BlockRoadWhite(Material.iron, MapColor.ironColor).setUnlocalizedName("WhiteT");
+		Road_Crossing_White = new BlockRoadWhite(Material.iron, MapColor.ironColor).setUnlocalizedName("Crossing");
 		Road_Yellow_Middle_Solid = new BlockRoad(Material.iron, MapColor.yellowColor).setUnlocalizedName("YellowMiddleSolid");
 		Road_Yellow_Middle_Dotted = new BlockRoad(Material.iron, MapColor.yellowColor).setUnlocalizedName("YellowMiddleDotted");
 		Road_Yellow_Side_Solid = new BlockRoad(Material.iron, MapColor.yellowColor).setUnlocalizedName("YellowSideSolid");
@@ -160,7 +160,7 @@ public class RoadBlocks
 		
 		/*Full Road Blocks*/
 		Road_Full = new BlockRoadFull(Material.rock, MapColor.blackColor).setUnlocalizedName("RoadFull");
-		//RoadSlab = new BlockRoadSlab(Material.iron, MapColor.blackColor).setUnlocalizedName("RoadSlab");
+		RoadSlab = new BlockRoadSlab(Material.iron, MapColor.blackColor).setUnlocalizedName("RoadSlab");
 		
 		
 	}
@@ -258,7 +258,7 @@ public class RoadBlocks
 		
 		/*Full Road Blocks*/
 		GameRegistry.registerBlock(Road_Full, Road_Full.getUnlocalizedName().substring(5)).setHardness(1.5F).setResistance(10.0F).setCreativeTab(RoadMod.AsphaultTab);
-		//GameRegistry.registerBlock(RoadSlab, RoadSlab.getUnlocalizedName().substring(5)).setHardness(1.5F).setResistance(10.0F).setCreativeTab(RoadMod.AsphaultTab);
+		GameRegistry.registerBlock(RoadSlab, RoadSlab.getUnlocalizedName().substring(5)).setHardness(1.5F).setResistance(10.0F).setCreativeTab(RoadMod.AsphaultTab);
 		
 	}
 
@@ -355,7 +355,7 @@ public class RoadBlocks
 		RegisterRender(Parking_Meter);
 		RegisterRender(RailRoad_Crossing_Sign);
 		RegisterRender(Road_Full);
-		//RegisterRender(RoadSlab);
+		RegisterRender(RoadSlab);
 	}
 	
 	public static void RegisterRender(Block block)
