@@ -72,14 +72,14 @@ public class RoadBlocks
 		Road_White_Cross = new BlockRoadWhite(Material.iron, MapColor.ironColor).setUnlocalizedName("WhiteCross");
 		Road_White_T = new BlockRoadWhite(Material.iron, MapColor.ironColor).setUnlocalizedName("WhiteT");
 		Road_Crossing_White = new BlockRoadWhite(Material.iron, MapColor.ironColor).setUnlocalizedName("Crossing");
-		Road_Yellow_Middle_Solid = new BlockRoad(Material.iron, MapColor.yellowColor).setUnlocalizedName("YellowMiddleSolid");
-		Road_Yellow_Middle_Dotted = new BlockRoad(Material.iron, MapColor.yellowColor).setUnlocalizedName("YellowMiddleDotted");
-		Road_Yellow_Side_Solid = new BlockRoad(Material.iron, MapColor.yellowColor).setUnlocalizedName("YellowSideSolid");
-		Road_Yellow_Side_Corner = new BlockRoad(Material.iron, MapColor.yellowColor).setUnlocalizedName("YellowSideCorner");
-		Road_Yellow_Side_Corner_Out = new BlockRoad(Material.iron, MapColor.yellowColor).setUnlocalizedName("YellowSideCornerOut");
-		Road_Yellow_Side_Corner_Out = new BlockRoad(Material.iron, MapColor.yellowColor).setUnlocalizedName("YellowSideCornerOut");
-		Road_Yellow_Cross = new BlockRoad(Material.iron, MapColor.yellowColor).setUnlocalizedName("YellowCross");
-		Road_Yellow_T = new BlockRoad(Material.iron, MapColor.yellowColor).setUnlocalizedName("YellowT");
+		Road_Yellow_Middle_Solid = new BlockRoadYellow(Material.iron, MapColor.yellowColor).setUnlocalizedName("YellowMiddleSolid");
+		Road_Yellow_Middle_Dotted = new BlockRoadYellow(Material.iron, MapColor.yellowColor).setUnlocalizedName("YellowMiddleDotted");
+		Road_Yellow_Side_Solid = new BlockRoadYellow(Material.iron, MapColor.yellowColor).setUnlocalizedName("YellowSideSolid");
+		Road_Yellow_Side_Corner = new BlockRoadYellow(Material.iron, MapColor.yellowColor).setUnlocalizedName("YellowSideCorner");
+		Road_Yellow_Side_Corner_Out = new BlockRoadYellow(Material.iron, MapColor.yellowColor).setUnlocalizedName("YellowSideCornerOut");
+		Road_Yellow_Side_Corner_Out = new BlockRoadYellow(Material.iron, MapColor.yellowColor).setUnlocalizedName("YellowSideCornerOut");
+		Road_Yellow_Cross = new BlockRoadYellow(Material.iron, MapColor.yellowColor).setUnlocalizedName("YellowCross");
+		Road_Yellow_T = new BlockRoadYellow(Material.iron, MapColor.yellowColor).setUnlocalizedName("YellowT");
 		Road_Crossing_Yellow = new BlockRoad(Material.iron, MapColor.yellowColor).setUnlocalizedName("YellowCrossing");
 		Road_Crossing_Yellow_Corner = new BlockRoad(Material.iron, MapColor.yellowColor).setUnlocalizedName("YellowCrossingCorner");
 		Road_Yellow_Passing = new BlockRoad(Material.iron, MapColor.yellowColor).setUnlocalizedName("YellowPassing");
@@ -97,7 +97,7 @@ public class RoadBlocks
         
 		
 		Road_Guard = new BlockGuardRail(block5.getDefaultState()).setUnlocalizedName("Guardrail").setLightOpacity(0);
-		Road_Pothole = new BlockRoad(Material.iron, MapColor.yellowColor).setUnlocalizedName("Pothole");
+		Road_Pothole = new BlockRoad(Material.iron, MapColor.blackColor).setUnlocalizedName("Pothole");
 		Road_Speedbump = new BlockRoad(Material.iron, MapColor.yellowColor).setUnlocalizedName("SpeedBump");
 		Road_Curb = new BlockRoad(Material.iron, MapColor.grayColor).setUnlocalizedName("Curb");
 		Road_Curb_White = new BlockRoad(Material.iron, MapColor.ironColor).setUnlocalizedName("CurbWhite");
