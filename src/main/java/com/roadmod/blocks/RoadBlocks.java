@@ -10,7 +10,10 @@ import net.minecraft.block.material.Material;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.Item;
+import net.minecraft.util.BlockPos;
+import net.minecraft.world.IBlockAccess;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry;
@@ -53,16 +56,14 @@ public class RoadBlocks
 	Sign_Merge_Left, Sign_Merge_Right, Sign_StopSign_Ahead, Sign_Road_Block, RailRoad_Crossing_Sign,
 	Sign_Speed;
 	//Misc
-	public static Block Fire_Hydrant, Parking_Meter;
-	
-	//TESTING
+	public static Block Fire_Hydrant, Parking_Meter, TelephonePoleBase, TelephonePoleCable,
+	TelephonePoleCrossbar, TelephonePoleTransformer;
+    //Slopes
 	public static Block Slope;
 	
 	public static void init()
 	{
-		
-		Slope = new BlockRoad(Material.rock, MapColor.blackColor).setUnlocalizedName("Slope").setLightOpacity(0);
-
+	
 		Road = new BlockRoad(Material.iron, MapColor.blackColor).setUnlocalizedName("Road");
 		Road_White_Middle_Solid = new BlockRoadWhite(Material.iron, MapColor.ironColor).setUnlocalizedName("WhiteMiddleSolid");
 		Road_White_Middle_Dotted = new BlockRoadWhite(Material.iron, MapColor.ironColor).setUnlocalizedName("WhiteMiddleDotted");
@@ -163,12 +164,18 @@ public class RoadBlocks
 		Road_Full = new BlockRoadFull(Material.rock, MapColor.blackColor).setUnlocalizedName("RoadFull");
 		RoadSlab = new BlockRoadSlab(Material.iron, MapColor.blackColor).setUnlocalizedName("RoadSlab");
 		
+		TelephonePoleBase = new BlockTelephonePole(Material.iron).setUnlocalizedName("TelephonePoleBase");
+		TelephonePoleCable = new BlockTelephonePoleCable(Material.iron).setUnlocalizedName("TelephonePoleCable");
+		TelephonePoleCrossbar = new BlockTelephonePoleTransformer(Material.iron).setUnlocalizedName("TelephonePoleCrossbar");
+		TelephonePoleTransformer = new BlockTelephonePoleTransformer(Material.iron).setUnlocalizedName("TelephonePoleTransformer");
+		
+		Slope = new BlockRoad(Material.rock, MapColor.blackColor).setUnlocalizedName("Slope").setLightOpacity(0);
+
 		
 	}
 	public static void register()
 	{
-		GameRegistry.registerBlock(Slope, Slope.getUnlocalizedName().substring(5)).setHardness(1.5F).setResistance(10.0F).setCreativeTab(RoadMod.AsphaultTab);
-		
+			
 		GameRegistry.registerBlock(Road, Road.getUnlocalizedName().substring(5)).setHardness(1.5F).setResistance(10.0F).setCreativeTab(RoadMod.AsphaultTab);
 		GameRegistry.registerBlock(Road_White_Middle_Solid, Road_White_Middle_Solid.getUnlocalizedName().substring(5)).setHardness(1.5F).setResistance(10.0F).setCreativeTab(RoadMod.AsphaultTab);
 		GameRegistry.registerBlock(Road_White_Middle_Dotted, Road_White_Middle_Dotted.getUnlocalizedName().substring(5)).setHardness(1.5F).setResistance(10.0F).setCreativeTab(RoadMod.AsphaultTab);
@@ -262,12 +269,18 @@ public class RoadBlocks
 		GameRegistry.registerBlock(Road_Full, Road_Full.getUnlocalizedName().substring(5)).setHardness(1.5F).setResistance(10.0F).setCreativeTab(RoadMod.AsphaultTab);
 		GameRegistry.registerBlock(RoadSlab, RoadSlab.getUnlocalizedName().substring(5)).setHardness(1.5F).setResistance(10.0F).setCreativeTab(RoadMod.AsphaultTab);
 		
+		GameRegistry.registerBlock(TelephonePoleBase, TelephonePoleBase.getUnlocalizedName().substring(5)).setHardness(1.5F).setResistance(10.0F).setCreativeTab(RoadMod.MiscTab);
+		GameRegistry.registerBlock(TelephonePoleCable, TelephonePoleCable.getUnlocalizedName().substring(5)).setHardness(1.5F).setResistance(10.0F).setCreativeTab(RoadMod.MiscTab);
+		GameRegistry.registerBlock(TelephonePoleCrossbar, TelephonePoleCrossbar.getUnlocalizedName().substring(5)).setHardness(1.5F).setResistance(10.0F).setCreativeTab(RoadMod.MiscTab);
+		GameRegistry.registerBlock(TelephonePoleTransformer, TelephonePoleTransformer.getUnlocalizedName().substring(5)).setHardness(1.5F).setResistance(10.0F).setCreativeTab(RoadMod.MiscTab);
+		
+		GameRegistry.registerBlock(Slope, Slope.getUnlocalizedName().substring(5)).setHardness(1.5F).setResistance(10.0F).setCreativeTab(RoadMod.AsphaultTab);
+		
 	}
 
 	
 	public static void registerRenders()
 	{
-		RegisterRender(Slope);
 		
 		RegisterRender(Road);	
 		RegisterRender(Road_White_Middle_Solid);	
@@ -359,6 +372,11 @@ public class RoadBlocks
 		RegisterRender(RailRoad_Crossing_Sign);
 		RegisterRender(Road_Full);
 		RegisterRender(RoadSlab);
+		RegisterRender(TelephonePoleBase);
+		RegisterRender(TelephonePoleCable);
+		RegisterRender(TelephonePoleCrossbar);
+		RegisterRender(TelephonePoleTransformer);
+		RegisterRender(Slope);
 	}
 	
 	public static void RegisterRender(Block block)

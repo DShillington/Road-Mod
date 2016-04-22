@@ -26,6 +26,7 @@ import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumWorldBlockLayer;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -36,9 +37,9 @@ public class BlockTelephonePole extends Block
 	 public BlockTelephonePole(Material materialIn) {
 		super(Material.iron);
 		this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.SOUTH));
-		this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.812F, 1.0F);
+		this.setBlockBounds(0.1F, 0.0F, 0.1F, 0.9F, 1.0F, 0.9F);
 	 }
-	 
+	    
 	public static final PropertyDirection FACING = PropertyDirection.create("facing", EnumFacing.Plane.HORIZONTAL);
 
 	@Override
@@ -48,7 +49,7 @@ public class BlockTelephonePole extends Block
 	
 	@Override
 	public boolean isFullCube() {
-		return true;
+		return false;
 	}
 	
 	@Override
@@ -57,7 +58,7 @@ public class BlockTelephonePole extends Block
 	}
 	public Item getItemDropped(IBlockState state, Random rand, int fortune)
     {
-        return Item.getItemFromBlock(RoadBlocks.Road);
+        return Item.getItemFromBlock(RoadBlocks.TelephonePoleBase);
     }
 	 
     public void onBlockAdded(World worldIn, BlockPos pos, IBlockState state)
@@ -178,4 +179,8 @@ public class BlockTelephonePole extends Block
                 }
             }
         }
+    	@Override public boolean isLadder(IBlockAccess world, BlockPos pos, EntityLivingBase entity) 
+    	{ 
+    		return true; 
+    	}
 }

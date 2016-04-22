@@ -2,6 +2,8 @@ package com.roadmod.blocks;
 
 import java.util.Random;
 
+import com.roadmod.RoadMod;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockGlass;
 import net.minecraft.block.BlockWorkbench;
@@ -24,17 +26,19 @@ import net.minecraft.tileentity.TileEntityFurnace;
 import net.minecraft.tileentity.TileEntitySign;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.BlockPos;
+import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumWorldBlockLayer;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class BlockTelephonePoleTransformer extends Block
+public class BlockTelephonePoleCable extends Block
 {
 	
-	 public BlockTelephonePoleTransformer(Material materialIn) {
+	 public BlockTelephonePoleCable(Material materialIn) {
 		super(Material.iron);
+		 this.setTickRandomly(true);
 		this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.SOUTH));
 		this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
 	 }
@@ -45,26 +49,31 @@ public class BlockTelephonePoleTransformer extends Block
 	public boolean isOpaqueCube() {
 		return false;
 	}
-	
+	 public AxisAlignedBB getCollisionBoundingBox(World worldIn, BlockPos pos, IBlockState state)
+	    {
+	        return null;
+	    }
 	@Override
 	public boolean isFullCube() {
+		return false;
+	}
+	public boolean isPassable(){
 		return true;
 	}
-	
 	@Override
 	public EnumWorldBlockLayer getBlockLayer() {
 		return EnumWorldBlockLayer.SOLID;
 	}
 	public Item getItemDropped(IBlockState state, Random rand, int fortune)
     {
-        return Item.getItemFromBlock(RoadBlocks.TelephonePoleTransformer);
+        return Item.getItemFromBlock(RoadBlocks.TelephonePoleCable);
     }
 	 
     public void onBlockAdded(World worldIn, BlockPos pos, IBlockState state)
     {
         this.setDefaultFacing(worldIn, pos, state);
     }
-
+    
     private void setDefaultFacing(World worldIn, BlockPos pos, IBlockState state)
     {
         if (!worldIn.isRemote)
@@ -104,9 +113,12 @@ public class BlockTelephonePoleTransformer extends Block
     {
         return 3;
     }
-    /**
-     * Convert the given metadata into a BlockState for this Block
-     */
+    
+    public void onEntityCollidedWithBlock(World worldIn, BlockPos pos, IBlockState state, Entity entityIn)
+    {
+        entityIn.attackEntityFrom(RoadMod.electricDamage, 10.0F);
+    }
+    
     public IBlockState getStateFromMeta(int meta)
     {
         EnumFacing enumfacing = EnumFacing.getFront(meta);

@@ -15,6 +15,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.DamageSource;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.client.model.b3d.B3DLoader;
 import net.minecraftforge.fml.common.Loader;
@@ -39,6 +40,8 @@ public class RoadMod
     public static CreativeTabs AsphaultTab = new AsphaultTab("tabRoadAsphault");
     public static CreativeTabs SignTab = new SignTab("tabRoadSign");
     public static CreativeTabs MiscTab = new MiscTab("tabRoadMisc");
+    
+    public static DamageSource electricDamage = new DamageSource("electric").setDamageBypassesArmor();
 	
     @EventHandler
     public void init(FMLInitializationEvent event)
