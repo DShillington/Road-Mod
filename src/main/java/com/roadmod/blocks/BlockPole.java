@@ -8,15 +8,15 @@ import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyBool;
-import net.minecraft.block.state.BlockState;
+import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.init.Blocks;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.AxisAlignedBB;
-import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
+import net.minecraft.util.math.AxisAlignedBB;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
@@ -44,11 +44,11 @@ public class BlockPole extends Block {
     }
     
     @Override
-    protected BlockState createBlockState() {
-        return new BlockState(this, new IProperty[] { WEST, DOWN, SOUTH, EAST, UP, NORTH });
+    protected BlockStateContainer createBlockState() {
+		return new BlockStateContainer(this, new IProperty[] { WEST, DOWN, SOUTH, EAST, UP, NORTH });
     }
     
-    @Override
+   /** @Override
     public void addCollisionBoxesToList(final World world, final BlockPos coord, 
     		final IBlockState bs, final AxisAlignedBB box, final List collisionBoxList, 
     		final Entity entity) {
@@ -92,7 +92,6 @@ public class BlockPole extends Block {
         }
     }
     
-
     @Override
     public void setBlockBoundsBasedOnState(final IBlockAccess world, final BlockPos coord) {
         final boolean connectNorth = this.canConnectTo(world, coord.north());
@@ -132,13 +131,11 @@ public class BlockPole extends Block {
         }
         this.setBlockBounds(x1, y1, z1, x2, y2, z2);
     }
-    
-    @Override
+    */
     public boolean isOpaqueCube() {
         return false;
     }
     
-    @Override
     public boolean isFullCube() {
         return false;
     }
@@ -156,7 +153,6 @@ public class BlockPole extends Block {
     
     
     @SideOnly(Side.CLIENT)
-    @Override
     public boolean shouldSideBeRendered(final IBlockAccess world, final BlockPos coord, final EnumFacing face) {
         return true;
     }
@@ -164,17 +160,17 @@ public class BlockPole extends Block {
     @Override
     public IBlockState getActualState(final IBlockState bs, final IBlockAccess world, final BlockPos coord) {
         return bs
-        		.withProperty(WEST, this.canConnectTo(world, coord.west()))
-        		.withProperty(DOWN, this.canConnectTo(world, coord.down()))
-        		.withProperty(SOUTH, this.canConnectTo(world, coord.south()))
-        		.withProperty(EAST, this.canConnectTo(world, coord.east()))
-        		.withProperty(UP, this.canConnectTo(world, coord.up()))
-        		.withProperty(NORTH, this.canConnectTo(world, coord.north()));
+        		.withProperty(WEST, this.canConnectTo(world, coord.west(), bs))
+        		.withProperty(DOWN, this.canConnectTo(world, coord.down(), bs))
+        		.withProperty(SOUTH, this.canConnectTo(world, coord.south(), bs))
+        		.withProperty(EAST, this.canConnectTo(world, coord.east(), bs))
+        		.withProperty(UP, this.canConnectTo(world, coord.up(), bs))
+        		.withProperty(NORTH, this.canConnectTo(world, coord.north(), bs));
     }
 
-    public boolean canConnectTo(IBlockAccess worldIn, BlockPos pos)
+    public boolean canConnectTo(IBlockAccess worldIn, BlockPos pos, IBlockState state)
     {
         Block block = worldIn.getBlockState(pos).getBlock();
-        return block == Blocks.barrier ? false : ((!(block instanceof BlockPole) || block.getMaterial() != this.blockMaterial) && !(block instanceof BlockTrafficLight) && !(block instanceof BlockStreetLight) ? (block.getMaterial().isOpaque() && block.isFullCube() ? block.getMaterial() != Material.gourd : false) : true);
+        return block == Blocks.barrier ? false : ((!(block instanceof BlockPole) || block.getMaterial(state) != this.blockMaterial) && !(block instanceof BlockTrafficLight) && !(block instanceof BlockStreetLight) ? (block.getMaterial(state).isOpaque() && block.isFullCube(state) ? block.getMaterial(state) != Material.gourd : false) : true);
     }
 }

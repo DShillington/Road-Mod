@@ -2,13 +2,12 @@ package com.roadmod;
 
 import com.roadmod.blocks.RoadBlocks;
 import com.roadmod.items.RoadItems;
-import com.roadmod.proxy.CommonProxy;
+import com.roadmod.proxy.IRoadProxy;
 import com.roadmod.tabs.AsphaultTab;
 import com.roadmod.tabs.SignTab;
 import com.roadmod.tabs.MiscTab;
 import com.roadmod.util.Reference;
 
-import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
@@ -33,7 +32,7 @@ public class RoadMod
 {
 @SidedProxy(clientSide = Reference.CLIENT_PROXY_CLASS, serverSide = Reference.COMMON_PROXY_CLASS)
 	
-	public static CommonProxy proxy;
+	public static IRoadProxy proxy;
 
     public static boolean isCarsAndDrivesLoaded;
     
@@ -46,13 +45,13 @@ public class RoadMod
     @EventHandler
     public void init(FMLInitializationEvent event)
     {
-        proxy.register();
-		proxy.registerRenders();
+    	proxy.init();
     }
     
     @EventHandler
 	public void preInit(FMLPreInitializationEvent event)
     {
+    	proxy.init();
     	RoadBlocks.init();
     	RoadBlocks.register();
     	RoadItems.init();
@@ -64,5 +63,6 @@ public class RoadMod
 	@EventHandler
 	public void Init(FMLInitializationEvent event)
 	{	
+		proxy.init();
 	}
 }

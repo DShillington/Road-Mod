@@ -9,20 +9,18 @@ import net.minecraft.block.material.MapColor;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyDirection;
 import net.minecraft.block.properties.PropertyEnum;
-import net.minecraft.block.state.BlockState;
+import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
-import net.minecraft.util.AxisAlignedBB;
-import net.minecraft.util.BlockPos;
+import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.EnumFacing;
-import net.minecraft.util.EnumWorldBlockLayer;
 import net.minecraft.util.IStringSerializable;
-import net.minecraft.util.MovingObjectPosition;
-import net.minecraft.util.Vec3;
+import net.minecraft.util.math.AxisAlignedBB;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.Explosion;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
@@ -42,24 +40,14 @@ public class BlockGuardRail extends Block
 
     protected BlockGuardRail(IBlockState modelState)
     {
-        super(modelState.getBlock().getMaterial());
+        super(modelState.getBlock().getMaterial(modelState));
         this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH).withProperty(HALF, BlockGuardRail.EnumHalf.BOTTOM).withProperty(SHAPE, BlockGuardRail.EnumShape.STRAIGHT));
         this.modelBlock = modelState.getBlock();
         this.modelState = modelState;
-        this.setStepSound(this.modelBlock.stepSound);
+        this.setStepSound(this.modelBlock.getStepSound());
     }
 
-    public void setBlockBoundsBasedOnState(IBlockAccess worldIn, BlockPos pos)
-    {
-        if (this.hasRaytraced)
-        {
-            this.setBlockBounds(0.5F * (float)(this.rayTracePass % 2), 0.5F * (float)(this.rayTracePass / 4 % 2), 0.5F * (float)(this.rayTracePass / 2 % 2), 0.5F + 0.5F * (float)(this.rayTracePass % 2), 0.5F + 0.5F * (float)(this.rayTracePass / 4 % 2), 0.5F + 0.5F * (float)(this.rayTracePass / 2 % 2));
-        }
-        else
-        {
-            this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
-        }
-    }
+   
 
     /**
      * Used to determine ambient occlusion and culling when rebuilding chunks for render
@@ -77,21 +65,6 @@ public class BlockGuardRail extends Block
     public boolean isFullCube()
     {
         return true;
-    }
-
-    /**
-     * Set the block bounds as the collision bounds for the stairs at the given position
-     */
-    public void setBaseCollisionBounds(IBlockAccess worldIn, BlockPos pos)
-    {
-        if (worldIn.getBlockState(pos).getValue(HALF) == BlockGuardRail.EnumHalf.TOP)
-        {
-            this.setBlockBounds(0.0F, 0.5F, 0.0F, 1.0F, 1.0F, 1.0F);
-        }
-        else
-        {
-            this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.5F, 1.0F);
-        }
     }
 
     /**
@@ -409,7 +382,7 @@ public class BlockGuardRail extends Block
             }
         }
 
-        this.setBlockBounds(f2, f, f4, f3, f1, f5);
+       
         return flag1;
     }
 
@@ -529,29 +502,13 @@ public class BlockGuardRail extends Block
 
         if (flag1)
         {
-            this.setBlockBounds(f2, f, f4, f3, f1, f5);
+           
         }
 
         return flag1;
     }
 
-    /**
-     * Add all collision boxes of this Block to the list that intersect with the given mask.
-     */
-    public void addCollisionBoxesToList(World worldIn, BlockPos pos, IBlockState state, AxisAlignedBB mask, List<AxisAlignedBB> list, Entity collidingEntity)
-    {
-        this.setBaseCollisionBounds(worldIn, pos);
-        super.addCollisionBoxesToList(worldIn, pos, state, mask, list, collidingEntity);
-        boolean flag = this.func_176306_h(worldIn, pos);
-        super.addCollisionBoxesToList(worldIn, pos, state, mask, list, collidingEntity);
-
-        if (flag && this.func_176304_i(worldIn, pos))
-        {
-            super.addCollisionBoxesToList(worldIn, pos, state, mask, list, collidingEntity);
-        }
-
-        this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
-    }
+    
 
     public void onBlockClicked(World worldIn, BlockPos pos, EntityPlayer playerIn)
     {
@@ -561,7 +518,7 @@ public class BlockGuardRail extends Block
     @SideOnly(Side.CLIENT)
     public void randomDisplayTick(World worldIn, BlockPos pos, IBlockState state, Random rand)
     {
-        this.modelBlock.randomDisplayTick(worldIn, pos, state, rand);
+        this.modelBlock.randomTick(worldIn, pos, state, rand);
     }
 
     /**
@@ -575,7 +532,7 @@ public class BlockGuardRail extends Block
     @SideOnly(Side.CLIENT)
     public int getMixedBrightnessForBlock(IBlockAccess worldIn, BlockPos pos)
     {
-        return this.modelBlock.getMixedBrightnessForBlock(worldIn, pos);
+        return ((BlockGuardRail) this.modelBlock).getMixedBrightnessForBlock(worldIn, pos);
     }
 
     /**
@@ -594,21 +551,19 @@ public class BlockGuardRail extends Block
         return this.modelBlock.tickRate(worldIn);
     }
 
-    public Vec3 modifyAcceleration(World worldIn, BlockPos pos, Entity entityIn, Vec3 motion)
-    {
-        return this.modelBlock.modifyAcceleration(worldIn, pos, entityIn, motion);
-    }
+    
 
-    @SideOnly(Side.CLIENT)
-    public EnumWorldBlockLayer getBlockLayer()
+    @Override
+    public BlockRenderLayer getBlockLayer()
     {
+       
         return this.modelBlock.getBlockLayer();
     }
 
     @SideOnly(Side.CLIENT)
     public AxisAlignedBB getSelectedBoundingBox(World worldIn, BlockPos pos)
     {
-        return this.modelBlock.getSelectedBoundingBox(worldIn, pos);
+        return this.modelBlock.getSelectedBoundingBox(modelState, worldIn, pos);
     }
 
     /**
@@ -655,7 +610,7 @@ public class BlockGuardRail extends Block
 
     public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumFacing side, float hitX, float hitY, float hitZ)
     {
-        return this.modelBlock.onBlockActivated(worldIn, pos, this.modelState, playerIn, EnumFacing.DOWN, 0.0F, 0.0F, 0.0F);
+        return this.modelBlock.onBlockActivated(worldIn, pos, this.modelState, playerIn, null, null, EnumFacing.DOWN, 0.0F, 0.0F, 0.0F);
     }
 
     /**
@@ -688,49 +643,7 @@ public class BlockGuardRail extends Block
     /**
      * Ray traces through the blocks collision from start vector to end vector returning a ray trace hit.
      */
-    public MovingObjectPosition collisionRayTrace(World worldIn, BlockPos pos, Vec3 start, Vec3 end)
-    {
-        MovingObjectPosition[] amovingobjectposition = new MovingObjectPosition[8];
-        IBlockState iblockstate = worldIn.getBlockState(pos);
-        int i = ((EnumFacing)iblockstate.getValue(FACING)).getHorizontalIndex();
-        boolean flag = iblockstate.getValue(HALF) == BlockGuardRail.EnumHalf.TOP;
-        int[] aint = field_150150_a[i + (flag?4:0)];
-        this.hasRaytraced = true;
-
-        for (int j = 0; j < 8; ++j)
-        {
-            this.rayTracePass = j;
-
-            if (Arrays.binarySearch(aint, j) < 0)
-            {
-                amovingobjectposition[j] = super.collisionRayTrace(worldIn, pos, start, end);
-            }
-        }
-
-        for (int k : aint)
-        {
-            amovingobjectposition[k] = null;
-        }
-
-        MovingObjectPosition movingobjectposition1 = null;
-        double d1 = 0.0D;
-
-        for (MovingObjectPosition movingobjectposition : amovingobjectposition)
-        {
-            if (movingobjectposition != null)
-            {
-                double d0 = movingobjectposition.hitVec.squareDistanceTo(end);
-
-                if (d0 > d1)
-                {
-                    movingobjectposition1 = movingobjectposition;
-                    d1 = d0;
-                }
-            }
-        }
-
-        return movingobjectposition1;
-    }
+   
 
     /**
      * Convert the given metadata into a BlockState for this Block
@@ -796,10 +709,10 @@ public class BlockGuardRail extends Block
         return state;
     }
 
-    protected BlockState createBlockState()
-    {
-        return new BlockState(this, new IProperty[] {FACING, HALF, SHAPE});
-    }
+    @Override
+	protected BlockStateContainer createBlockState() {
+		return new BlockStateContainer(this, new IProperty[] { FACING, HALF, SHAPE });
+	}
 
     public static enum EnumHalf implements IStringSerializable
     {

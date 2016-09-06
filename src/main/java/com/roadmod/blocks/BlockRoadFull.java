@@ -11,12 +11,10 @@ public class BlockRoadFull extends Block {
 	}
 	
 
-    @Override
     public boolean isOpaqueCube() {
         return false;
     }
     
-    @Override
     public boolean isFullCube() {
         return false;
     }

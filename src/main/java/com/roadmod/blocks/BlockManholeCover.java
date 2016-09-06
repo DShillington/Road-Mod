@@ -1,6 +1,7 @@
 package com.roadmod.blocks;
 
 import java.util.Iterator;
+import java.util.Vector;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockSlab;
@@ -10,19 +11,17 @@ import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyBool;
 import net.minecraft.block.properties.PropertyDirection;
 import net.minecraft.block.properties.PropertyEnum;
-import net.minecraft.block.state.BlockState;
+import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
-import net.minecraft.util.AxisAlignedBB;
-import net.minecraft.util.BlockPos;
+import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.EnumFacing;
-import net.minecraft.util.EnumWorldBlockLayer;
 import net.minecraft.util.IStringSerializable;
-import net.minecraft.util.MovingObjectPosition;
-import net.minecraft.util.Vec3;
+import net.minecraft.util.math.AxisAlignedBB;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
@@ -62,18 +61,9 @@ public class BlockManholeCover extends Block
         return !((Boolean)worldIn.getBlockState(pos).getValue(OPEN)).booleanValue();
     }
 
-    @SideOnly(Side.CLIENT)
-    public AxisAlignedBB getSelectedBoundingBox(World worldIn, BlockPos pos)
-    {
-        this.setBlockBoundsBasedOnState(worldIn, pos);
-        return super.getSelectedBoundingBox(worldIn, pos);
-    }
+    
 
-    public AxisAlignedBB getCollisionBoundingBox(World worldIn, BlockPos pos, IBlockState state)
-    {
-        this.setBlockBoundsBasedOnState(worldIn, pos);
-        return super.getCollisionBoundingBox(worldIn, pos, state);
-    }
+    
 
     public void setBlockBoundsBasedOnState(IBlockAccess worldIn, BlockPos pos)
     {
@@ -86,7 +76,7 @@ public class BlockManholeCover extends Block
     public void setBlockBoundsForItemRender()
     {
         float f = 0.1875F;
-        this.setBlockBounds(0.0F, 0.40625F, 0.0F, 1.0F, 0.59375F, 1.0F);
+       // this.setBlockBounds(0.0F, 0.40625F, 0.0F, 1.0F, 0.59375F, 1.0F);
     }
 
     public void setBounds(IBlockState state)
@@ -100,33 +90,33 @@ public class BlockManholeCover extends Block
 
             if (flag)
             {
-                this.setBlockBounds(0.0F, 0.62F, 0.0F, 1.0F, 0.812F, 1.0F);
+               // this.setBlockBounds(0.0F, 0.62F, 0.0F, 1.0F, 0.812F, 1.0F);
             }
             else
             {
-            	this.setBlockBounds(0.0F, 0.62F, 0.0F, 1.0F, 0.812F, 1.0F);
+            	//this.setBlockBounds(0.0F, 0.62F, 0.0F, 1.0F, 0.812F, 1.0F);
             }
 
             if (obool.booleanValue())
             {
                 if (enumfacing == EnumFacing.SOUTH)
                 {
-                    this.setBlockBounds(0.0F, 0.0F, 0.8125F, 1.0F, 1.0F, 1.0F);
+                   // this.setBlockBounds(0.0F, 0.0F, 0.8125F, 1.0F, 1.0F, 1.0F);
                 }
 
                 if (enumfacing == EnumFacing.NORTH)
                 {
-                    this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 0.1875F);
+                   // this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 0.1875F);
                 }
 
                 if (enumfacing == EnumFacing.EAST)
                 {
-                    this.setBlockBounds(0.8125F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
+                  //  this.setBlockBounds(0.8125F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
                 }
 
                 if (enumfacing == EnumFacing.WEST)
                 {
-                    this.setBlockBounds(0.0F, 0.0F, 0.0F, 0.1875F, 1.0F, 1.0F);
+                  //  this.setBlockBounds(0.0F, 0.0F, 0.0F, 0.1875F, 1.0F, 1.0F);
                 }
             }
         }
@@ -142,11 +132,7 @@ public class BlockManholeCover extends Block
         
     }
 
-    public MovingObjectPosition collisionRayTrace(World worldIn, BlockPos pos, Vec3 start, Vec3 end)
-    {
-        this.setBlockBoundsBasedOnState(worldIn, pos);
-        return super.collisionRayTrace(worldIn, pos, start, end);
-    }
+    
 
     public IBlockState onBlockPlaced(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer)
     {
@@ -198,9 +184,9 @@ public class BlockManholeCover extends Block
 
 
     @SideOnly(Side.CLIENT)
-    public EnumWorldBlockLayer getBlockLayer()
+    public BlockRenderLayer getBlockLayer()
     {
-        return EnumWorldBlockLayer.CUTOUT_MIPPED;
+        return BlockRenderLayer.CUTOUT_MIPPED;
     }
 
     public IBlockState getStateFromMeta(int meta)
@@ -226,9 +212,8 @@ public class BlockManholeCover extends Block
         return i;
     }
 
-    protected BlockState createBlockState()
-    {
-        return new BlockState(this, new IProperty[] {FACING, OPEN, HALF});
+   	protected BlockStateContainer createBlockState() {
+   		return new BlockStateContainer(this, new IProperty[] { FACING, OPEN, HALF});
     }
 
     public static enum DoorHalf implements IStringSerializable
