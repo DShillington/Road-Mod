@@ -175,6 +175,6 @@ public class BlockPole extends Block {
     public boolean canConnectTo(IBlockAccess worldIn, BlockPos pos)
     {
         Block block = worldIn.getBlockState(pos).getBlock();
-        return block == Blocks.barrier ? false : ((!(block instanceof BlockPole) || block.getMaterial() != this.blockMaterial) && !(block instanceof BlockTrafficLight) ? (block.getMaterial().isOpaque() && block.isFullCube() ? block.getMaterial() != Material.gourd : false) : true);
+        return block == Blocks.barrier ? false : ((!(block instanceof BlockPole) || block.getMaterial() != this.blockMaterial) && !(block instanceof BlockTrafficLight) && !(block instanceof BlockStreetLight) ? (block.getMaterial().isOpaque() && block.isFullCube() ? block.getMaterial() != Material.gourd : false) : true);
     }
 }

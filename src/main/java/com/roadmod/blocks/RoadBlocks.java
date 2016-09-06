@@ -124,7 +124,7 @@ public class RoadBlocks
 		Traffic_Light = new BlockTrafficLight(Material.iron).setUnlocalizedName("TrafficLight");
 		Metal_Pole_Big = new BlockPole().setUnlocalizedName("MetalPoleBig").setLightOpacity(0);
 		Metal_Pole_Small = new BlockPole().setUnlocalizedName("MetalPoleSmall").setLightOpacity(0);
-		Street_Light = new BlockTrafficLight(Material.iron).setLightLevel(1.0F).setUnlocalizedName("StreetLight");
+		Street_Light = new BlockStreetLight(Material.iron).setLightLevel(1.0F).setUnlocalizedName("StreetLight");
 		Pylon_Stick = new BlockRoadSign(Material.iron).setUnlocalizedName("PylonStick");
 		Pylon_Triangle = new BlockRoadSign(Material.iron).setUnlocalizedName("PylonTriangle");
 		Pylon_Large = new BlockRoadSign(Material.iron).setUnlocalizedName("PylonLarge");
